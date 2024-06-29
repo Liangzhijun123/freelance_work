@@ -1,5 +1,5 @@
 import React from "react";
-// test 1 hiewwwww
+// test 1
 const Choose = [
   {
     img: <img src="/image/image3.svg" alt="image3" />,
@@ -61,6 +61,37 @@ const Feature = () => {
                     {item.pic}
                   </div>
                 ))}
+                
+              </div>
+            </div>
+            <div className="relative w-[1320px] h-[435px] rounded-[20px] overflow-hidden bg-gradient-to-r from-[rgba(18,18,18,0.33)] to-[rgba(83,84,108,0.33)]">
+              <div className="flex flex-row gap-[139px] justify-center items-center p-14 ">
+                {Choose.map((item, index) => (
+                  <div key={index} className="flex flex-row gap-[20px] items-center w-full justify-center">
+                    {item.img}
+                    <div className="flex flex-col text-left gap-[32px] w-[557px]">
+                      <p className="text-white">{item.title}</p>
+                      <div className="flex flex-row gap-[17px]">
+                        {item.check}
+                        <p className="text-white w-[450px]">{item.text}</p>
+                      </div>
+                      <div className="flex flex-row gap-[17px]">
+                        {item.check}
+                        <p className="text-white w-[450px]">{item.text1}</p>
+                      </div>
+                      <div className="flex flex-row gap-[17px]">
+                        {item.check}
+                        <p className="text-white w-[450px]">{item.text2}</p>
+                      </div>
+                      <div className="flex flex-row gap-[17px]">
+                        {item.check}
+                        <p className="text-white w-[450px]">{item.text3}</p>
+                      </div>
+                    </div>
+                    {item.pic}
+                  </div>
+                ))}
+                
               </div>
             </div>
           </div>
