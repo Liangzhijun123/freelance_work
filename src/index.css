@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@font-face {
+    font-family: 'Sora';
+    src: url('./font/Sora-VariableFont_wght.ttf') format('truetype');
+    
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400; /* Adjust weights as needed */
+    src: url('./font/Inter.ttf') format('truetype');
+        
+  }
+
+  body {
+    background-image: url("/public/image/bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  
+}
+
+
+  
+ 
