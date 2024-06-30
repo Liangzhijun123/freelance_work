@@ -6,19 +6,19 @@ const Product = () => {
       <div className="relative" id="home_product">
         {/* desktop  */}
         <div className="xl:mt-[100px] xl:mb-[100px] md:mt-[150px]  md:mb-[150px] mt-10 overflow-x-auto">
-          <div className="hidden md:grid grid-cols-2 xl:gap-[81px] md:gap-[80px] justify-center xl:px-64 xl:w-full md:px-20 md:min-w-[1490px] mx-auto">
+          <div className="hidden md:grid grid-cols-2 xl:gap-[81px] md:gap-[40px] items-center justify-center xl:px-64 w-full md:px-10 ">
             <div className="flex gap-10">
               <img
                 src="/image/image2.png"
                 alt="image"
-                className="xl:min-h-[608px] xl:min-w-[639px] md:min-h-[508px] md:min-w-[639px] min-w-full"
+                className="xl:min-h-[608px] xl:min-w-[639px] md:h-[508px] md:w-[439px] "
               />
             </div>
             <div className="flex flex-col text-left gap-[20px] xl:min-h-[635px] md:min-h-[300px] max-w-full">
               <p className=" flex items-center justify-center text-white xl:text-[16px] md:text-[12px] border border-[#7D6407] font-Inter bg-[#3E3204] bg-opacity-60 rounded-[16px] h-[28px] w-[134px] text-center">
                 Product Vision
               </p>
-              <p className="text-white xl:text-[48px] md:text-[28px] font-Sora font-bold w-full xl:min-w-[610px] md:w-[500px]">
+              <p className="text-white xl:text-[48px] md:text-[28px] font-Sora font-bold w-full xl:min-w-[610px] md:w-[400px]">
                 Guiding Your Adventures The Lantern{" "}
                 <span className="text-[#F9C80E]">TTRP Assistant</span>
               </p>

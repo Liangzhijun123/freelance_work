@@ -4,7 +4,7 @@ import React from "react";
 const Title = () => {
   return (
     <>
-      <div id="home_title" className="relative overflow-hidden">
+      <div id="home_title" className="relative overflow-hidden mx-auto ">
         {/* Desktop image */}
         <img
           src="/image/title-image.svg"
@@ -18,12 +18,12 @@ const Title = () => {
           className="w-full h-auto block md:hidden object-cover object-center"
         />
         <div className="absolute inset-0 flex justify-center items-center">
-          <div className="flex flex-col justify-center items-center gap-5 w-full max-w-[1155px] mx-auto px-4">
-            <p className="text-white text-[14px] md:text-[16px] xl:text-[16px] font-Inter  border-[#7D6407] border-2 bg-[#3E3204] bg-opacity-60 rounded-[16px] h-[28px] w-full max-w-[368px] text-center">
+          <div className="flex flex-col justify-center items-center xl:gap-5 md:gap-[12px] w-full max-w-[1155px] mx-auto px-4">
+            <p className="text-white text-[16px] md:text-[16px] xl:text-[16px] font-Inter  border-[#7D6407] border-2 bg-[#3E3204] bg-opacity-60 rounded-[16px] h-[28px] w-full max-w-[368px] text-center">
               Dungeons & Dragons Campaign Management
             </p>
 
-            <p className="text-white text-[32px] md:text-[72px] xl:text-[72px] font-Sora font-bold w-[900px] text-center">
+            <p className="text-white text-[32px] md:text-[52px] xl:text-[72px] font-Sora font-bold w-[900px] text-center">
               Light Up Your Journey With{" "}
               <span className="text-[#F9C80E]"> Lantern Glow </span>
             </p>

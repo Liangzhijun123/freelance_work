@@ -1,3 +1,12 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+
+<div className="relative xl:w-[1320px] xl:h-[435px] md:w-[850px] md:h-[435px] rounded-[20px] overflow-hidden bg-gradient-to-r from-[rgba(18,18,18,0.33)] to-[rgba(83,84,108,0.33)]">
+            <div className="flex flex-row xl:gap-[139px] md:gap-[50px] justify-center items-center xl:p-14 md:p-12 xl:px-10 md:px-10">
+
+            <div className="relative xl:w-[1320px] xl:h-[435px] h-[2445px] w-[335px] md:w-[850px] md:h-[435px] rounded-[20px] overflow-hidden bg-gradient-to-r from-[rgba(18,18,18,0.17)] to-[rgba(83,84,108,0.17)]">
+            <div className="flex xl:flex-row md:flex-row flex-col xl:gap-[139px] md:gap-[50px] gap-[30px] justify-center items-center xl:p-14 md:p-12 p-6 xl:px-10 md:px-10">
+
+            <div className="relative xl:w-[1320px] xl:h-[435px] h-[2445px] w-[335px] md:w-[850px] md:h-[435px] rounded-[20px] overflow-hidden bg-gradient-to-r from-[rgba(18,18,18,0.17)] to-[rgba(83,84,108,0.17)]">
+            <div className="flex xl:flex-row md:flex-row flex-col xl:gap-[139px] md:gap-[50px] gap-[30px] justify-center items-center xl:p-14 md:p-12 p-6 xl:px-10 md:px-10">
