@@ -4,7 +4,7 @@ const Slide_three = () => {
   return (
     <>
       <div className="flex justify-center items-center ">
-      <div className="bg-gradient-to-b from-[#00000055] to-[#22223267] bg-opacity-[16%] border border-white xl:w-[410px] md:min-w-[350px] w-[335px] h-full rounded-[32px] border-opacity-10">
+      <div className="bg-gradient-to-b from-[#00000055] to-[#22223267] bg-opacity-[16%] border border-white hover:border-white xl:w-[410px] md:min-w-[350px] w-[335px] h-full rounded-[32px] border-opacity-10">
         <div className="flex flex-col gap-[24px] justify-center px-[32px] py-[32px]">
           <div className="flex flex-col gap-[16px] text-left break-words">
               <p className="text-white font-Sora font-semibold text-[32px]">

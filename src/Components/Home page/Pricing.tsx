@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Slide_one from "./Slide_show/Slide_one.tsx";
 import Slide_two from "./Slide_show/Slide_two.tsx";
 import Slide_three from "./Slide_show/Slide_three.tsx";
+import './Slideshow.css'; 
 
 const Pricing = () => {
+  const slides = [<Slide_one />, <Slide_two />, <Slide_three />];
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000); 
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       <div className="mt-[150px]">
@@ -21,23 +41,51 @@ const Pricing = () => {
               through our platform. Unmatched convenience guaranteed.
             </p>
             <div className=" flex flex-row justify-evenly items-center md:w-[414px] w-[335px] h-[45px] md:h-[56px] bg-gradient-to-b from-[#0b0415] to-[#22223267] bg-opacity-[16%] rounded-[16px] border border-[#2C2D47]">
-                <div className="hover:bg-[#F9C80E] md:w-[140px] w-[95px] h-[37px] md:h-[48px] md:p-3 p-2 rounded-[12px]">
-                    <a className="text-white hover:text-black font-Inter font-medium md:text-[16px] text-[14px]">Monthly</a>
-                </div>
-                <div className="hover:bg-[#F9C80E] md:w-[140px] w-[120px] h-[37px] md:h-[48px] md:p-3 p-2 rounded-[12px]">
-                    <a className="text-white text-nowrap hover:text-black font-Inter font-medium md:text-[16px] text-[14px]">Semi-annually</a>
-                </div>
-                <div className="hover:bg-[#F9C80E] md:w-[140px] w-[95px] h-[37px] md:h-[48px] md:p-3 p-2 rounded-[12px]">
-                    <a className="text-white hover:text-black font-Inter font-medium md:text-[16px] text-[14px]">Annually</a>
-                </div>
-
+              <div className="hover:bg-[#F9C80E] md:w-[140px] w-[95px] h-[37px] md:h-[48px] md:p-3 p-2 rounded-[12px]">
+                <a className="text-white hover:text-black font-Inter font-medium md:text-[16px] text-[14px]">
+                  Monthly
+                </a>
+              </div>
+              <div className="hover:bg-[#F9C80E] md:w-[140px] w-[120px] h-[37px] md:h-[48px] md:p-3 p-2 rounded-[12px]">
+                <a className="text-white text-nowrap hover:text-black font-Inter font-medium md:text-[16px] text-[14px]">
+                  Semi-annually
+                </a>
+              </div>
+              <div className="hover:bg-[#F9C80E] md:w-[140px] w-[95px] h-[37px] md:h-[48px] md:p-3 p-2 rounded-[12px]">
+                <a className="text-white hover:text-black font-Inter font-medium md:text-[16px] text-[14px]">
+                  Annually
+                </a>
+              </div>
             </div>
-a
-            {/* slide show rectangle components */}
-            <div className="flex md:flex-row flex-col justify-center gap-[24px] mt-8">
-              <Slide_one />
-              <Slide_two />
-              <Slide_three />
+            {/* Desktop and Tablet view */}
+            <div className="hidden md:flex flex-row justify-center gap-[24px] mt-20">
+              <div className="transform transition duration-300 hover:scale-110">
+                <Slide_one />
+              </div>
+              <div className="transform transition duration-300 hover:scale-110">
+                <Slide_two />
+              </div>
+              <div className="transform transition duration-300 hover:scale-110">
+                <Slide_three />
+              </div>
+            </div>
+
+            {/* Mobile view */}
+            <div className="md:hidden mt-20 slideshow-container">
+              {slides.map((slide, index) => (
+                <div key={index} className={`mySlides ${index === currentSlide ? 'fade' : ''}`} style={{ display: index === currentSlide ? 'block' : 'none' }}>
+                  {slide}
+                </div>
+              ))}
+
+              <a className="prev" onClick={prevSlide}>&#10094;</a>
+              <a className="next" onClick={nextSlide}>&#10095;</a>
+
+              <div className="dots">
+                {slides.map((_, index) => (
+                  <span key={index} className={`dot ${index === currentSlide ? 'active' : ''}`} onClick={() => setCurrentSlide(index)}></span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
