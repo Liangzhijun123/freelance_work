@@ -63,7 +63,7 @@ const Feature = () => {
             through our platform. Unmatched convenience guaranteed.
           </p>
         </div>
-        <div className="flex xl:w-[1320px] xl:h-[435px] md:min-w-[850px] w-[335px] md:h-[400px] rounded-[20px] bg-gradient-to-r from-[rgba(18,18,18,0.22)] to-[rgba(83,84,108,0.22)]">
+        <div className="flex xl:w-[1320px] xl:h-full md:min-w-[850px] w-[335px] md:h-[450px] rounded-[20px] bg-gradient-to-r from-[rgba(18,18,18,0.22)] to-[rgba(83,84,108,0.22)]">
           <div className="content flex flex-col md:flex-row h-full w-full justify-center items-center p-6 md:p-12">
             <div className="flex flex-row md:flex-row items-center md:items-start">
               <div className="md:w-[41px] md:h-[279px] flex-none w-[55px] h-[400px] ">
@@ -75,7 +75,7 @@ const Feature = () => {
                     Roll Digital Dice
                   </p>
                 </div>
-                <div className="flex flex-col xl:gap-[20px] md:gap-[24px] gap-[16px] xl:h-[557px] md:h-[350px]">
+                <div className="flex flex-col xl:gap-[20px] md:gap-[12px] gap-[16px] xl:h-[557px] md:h-[350px]">
                   <div className="flex flex-row gap-[16px] items-start">
                     <img
                       src="/image/checkyello.svg"
@@ -128,10 +128,10 @@ const Feature = () => {
             </div>
           </div>
         </div>
-        <div className="flex xl:w-[1320px] xl:h-[435px] md:min-w-[850px] w-[335px] md:h-[400px] rounded-[20px] bg-gradient-to-r from-[rgba(18,18,18,0.22)] to-[rgba(83,84,108,0.22)]">
+        <div className="flex xl:w-[1320px] xl:h-full md:min-w-[850px] w-[335px] md:h-[450px] rounded-[20px] bg-gradient-to-r from-[rgba(18,18,18,0.22)] to-[rgba(83,84,108,0.22)]">
           <div className="content flex flex-col md:flex-row h-full w-full justify-center items-center p-6 md:p-12">
             <div className="flex flex-row md:flex-row items-center md:items-start">
-              <div className="md:w-[41px] md:h-[279px] flex-none w-[55px] h-[400px] ">
+            <div className="md:w-[41px] md:h-[279px] flex-none w-[55px] h-[400px]">
                 <img src="/image/image4.svg" alt="image" />
               </div>
               <div className="flex md:h-[371px] min-h-[350px] md:max-w-[557px] w-full flex-col xl:gap-[40px] md:gap-[24px] gap-[16px] p-4 text-left">
@@ -140,7 +140,7 @@ const Feature = () => {
                     Manage Your Character
                   </p>
                 </div>
-                <div className="flex flex-col xl:gap-[20px] md:gap-[24px] gap-[16px] xl:h-[557px] md:h-[350px]">
+                <div className="flex flex-col xl:gap-[20px] md:gap-[12px] gap-[16px] xl:h-[557px] md:h-[350px]">
                   <div className="flex flex-row gap-[16px] items-start">
                     <img
                       src="/image/checkpurple.svg"
@@ -193,10 +193,10 @@ const Feature = () => {
             </div>
           </div>
         </div>
-        <div className="flex xl:w-[1320px] xl:h-[435px] md:min-w-[850px] w-[335px] md:h-[400px] rounded-[20px] bg-gradient-to-r from-[rgba(18,18,18,0.22)] to-[rgba(83,84,108,0.22)]">
+        <div className="flex xl:w-[1320px] xl:h-full md:min-w-[850px] w-[335px] md:h-[450px] rounded-[20px] bg-gradient-to-r from-[rgba(18,18,18,0.22)] to-[rgba(83,84,108,0.22)]">
           <div className="content flex flex-col md:flex-row h-full w-full justify-center items-center p-6 md:p-12">
             <div className="flex flex-row md:flex-row items-center md:items-start">
-              <div className="md:w-[41px] md:h-[279px] flex-none w-[55px] h-[400px] ">
+            <div className="md:w-[41px] md:h-[279px] flex-none w-[55px] h-[400px]">
                 <img src="/image/image3.svg" alt="image" />
               </div>
               <div className="flex md:h-[371px] min-h-[350px] md:max-w-[557px] w-full flex-col xl:gap-[40px] md:gap-[24px] gap-[16px] p-4 text-left">
@@ -205,7 +205,7 @@ const Feature = () => {
                   Customize Your Sheet
                   </p>
                 </div>
-                <div className="flex flex-col xl:gap-[20px] md:gap-[24px] gap-[16px] xl:h-[557px] md:h-[350px]">
+                <div className="flex flex-col xl:gap-[20px] md:gap-[12px] gap-[16px] xl:h-[557px] md:h-[350px]">
                   <div className="flex flex-row gap-[16px] items-start">
                     <img
                       src="/image/checkyello.svg"
