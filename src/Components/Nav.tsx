@@ -21,25 +21,25 @@ const Nav = () => {
         <div className="flex xl:gap-[50px] md:gap-[25px]">
           <a
             href="#home"
-            className="text-[#D2D2D5] font-Inter text-[18px] hover:text-white border:hidden hover:border-b border-b-[#F9C80E]"
+            className="relative text-[#D2D2D5] font-Inter text-[18px] hover:text-white border-hidden hover-gradient-border"
           >
             Home
           </a>
           <a
             href="#editor"
-            className="text-[#D2D2D5] font-Inter text-[18px] hover:text-white border:hidden hover:border-b border-b-[#F9C80E]"
+            className="relative text-[#D2D2D5] font-Inter text-[18px] hover:text-white border-hidden hover-gradient-border"
           >
             Editor
           </a>
           <a
             href="#menu"
-            className="text-[#D2D2D5] font-Inter text-[18px] hover:text-white border:hidden hover:border-b border-b-[#F9C80E]"
+            className="relative text-[#D2D2D5] font-Inter text-[18px] hover:text-white border-hidden hover-gradient-border"
           >
             Menu
           </a>
           <a
             href="#store"
-            className="text-[#D2D2D5] font-Inter text-[18px] hover:text-white border:hidden hover:border-b border-b-[#F9C80E]"
+            className="relative text-[#D2D2D5] font-Inter text-[18px] hover:text-white border-hidden hover-gradient-border"
           >
             Store
           </a>
@@ -66,10 +66,14 @@ const Nav = () => {
       <div className="md:hidden flex flex-row justify-between items-center px-[16px] py-[12px]">
         {/* Lantern text */}
         <p className="text-white font-Sora text-[24px] font-bold">Lantern</p>
-        
+
         {/* Hamburger icon */}
         <button onClick={toggleMobileMenu} className="ml-auto">
-          <img src="/image/hamburger.svg" alt="menu" className="cursor-pointer" />
+          <img
+            src="/image/hamburger.svg"
+            alt="menu"
+            className="cursor-pointer"
+          />
         </button>
       </div>
 

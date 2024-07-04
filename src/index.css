@@ -2,30 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@font-face {
+  font-family: "Sora";
+  src: url("./font/Sora-VariableFont_wght.ttf") format("truetype");
+}
 
 @font-face {
-    font-family: 'Sora';
-    src: url('./font/Sora-VariableFont_wght.ttf') format('truetype');
-    
-  }
-  
-  @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400; /* Adjust weights as needed */
-    src: url('./font/Inter.ttf') format('truetype');
-        
-  }
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400; /* Adjust weights as needed */
+  src: url("./font/Inter.ttf") format("truetype");
+}
 
-  body {
-    background-image: url("/public/image/bg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+body {
+  background-image: url("/public/image/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hover-gradient-border::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(to right, #f9c60e13, #f9c80e, #f9c60e13);
   
 }
 
-
-  
- 
+.hover-gradient-border:hover::before {
+  width: 100%;
+}

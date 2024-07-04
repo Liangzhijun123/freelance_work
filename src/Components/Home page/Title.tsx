@@ -34,9 +34,9 @@ const Title = () => {
               dice right from your sheet, track your spells, inventory, hit
               points, and more.
             </p>
-            <p className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[232px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+            <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[232px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
               Get Started For Free
-            </p>
+            </a>
           </div>
         </div>
       </div>

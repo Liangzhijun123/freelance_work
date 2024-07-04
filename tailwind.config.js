@@ -8,6 +8,11 @@ export const theme = {
       'Sora': ['Sora', 'sans-serif'],
       'Inter': ['Inter', 'sans-serif'],
     },
+    colors: {
+      gradientFrom: '#f9c60e13',
+      gradientVia: '#F9C80E',
+      gradientTo: '#f9c60e13',
+    },
   },
 };
 export const plugins = [];

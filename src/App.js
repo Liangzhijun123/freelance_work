@@ -4,6 +4,7 @@ import Nav from './Components/Nav.tsx';
 import Title from './Components/Home page/Title.tsx';
 import Product from './Components/Home page/Product.tsx';
 import Feature from './Components/Home page/Feature.tsx';
+import Price from './Components/Home page/Pricing.tsx';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Title />
       <Product />
       <Feature />
+      <Price />
     </div>
     
     </>
