@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Slide_one from "./Slide_show/Slide_one.tsx";
 import Slide_two from "./Slide_show/Slide_two.tsx";
 import Slide_three from "./Slide_show/Slide_three.tsx";
-import './Slideshow.css'; 
+import "./Slideshow.css";
 
 const Pricing = () => {
   const slides = [<Slide_one />, <Slide_two />, <Slide_three />];
@@ -19,7 +19,7 @@ const Pricing = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 3000); 
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -73,18 +73,61 @@ const Pricing = () => {
             {/* Mobile view */}
             <div className="md:hidden mt-20 slideshow-container">
               {slides.map((slide, index) => (
-                <div key={index} className={`mySlides ${index === currentSlide ? 'fade' : ''}`} style={{ display: index === currentSlide ? 'block' : 'none' }}>
+                <div
+                  key={index}
+                  className={`mySlides ${index === currentSlide ? "fade" : ""}`}
+                  style={{ display: index === currentSlide ? "block" : "none" }}
+                >
                   {slide}
                 </div>
               ))}
 
-              <a className="prev" onClick={prevSlide}>&#10094;</a>
-              <a className="next" onClick={nextSlide}>&#10095;</a>
+              <a className="prev" onClick={prevSlide}>
+                &#10094;
+              </a>
+              <a className="next" onClick={nextSlide}>
+                &#10095;
+              </a>
 
               <div className="dots">
                 {slides.map((_, index) => (
-                  <span key={index} className={`dot ${index === currentSlide ? 'active' : ''}`} onClick={() => setCurrentSlide(index)}></span>
+                  <span
+                    key={index}
+                    className={`dot ${index === currentSlide ? "active" : ""}`}
+                    onClick={() => setCurrentSlide(index)}
+                  ></span>
                 ))}
+              </div>
+            </div>
+          </div>
+          {/* unknown realms */}
+          <div className="flex justify-center items-center mt-[250px] ">
+            <div className="xl:w-[1320px] xl:h-full md:min-w-[850px] w-[335px] h-[889px] md:h-[400px] rounded-[20px] bg-gradient-to-r from-[rgba(18,18,18,0.22)] to-[rgba(83,84,108,0.22)]">
+              <div className="flex md:flex-row flex-col gap-[57px] md:text-left text-center justify-center items-center xl:p-8 md:p-12">
+                <div className=" flex flex-col md:gap-[26px] gap-[16px] md:w-[750px] w-[295px] p-5"> 
+                  <p className="text-white font-Sora font-semibold xl:text-[48px] md:text-[28px] text-[24px]"  >
+                    Embark on your Journey Into The{" "}
+                    <span className="text-[#F9C80E]">Unknown Realms Now!</span>
+                  </p>
+                  <p className="text-[#CAC6DD] font-Inter md:text-[18px] text-[16px]">
+                    Lantern app is an indispensable tool at the table. Dungeon
+                    Masters can easily use the app as a second DM screen. All
+                    your character information and game rules are right there .
+                  </p>
+
+                  {/* google play */}
+                  <div className="flex flex-row gap-[30px] w-full">
+                    <a href="">
+                      <img src="/image/google.svg"></img>
+                    </a>
+                    <a href="">
+                      <img src="/image/apple.svg"></img>
+                    </a>
+                  </div>
+                </div>
+                <div>
+                  <img src="/image/phone_image.svg"></img>
+                </div>
               </div>
             </div>
           </div>

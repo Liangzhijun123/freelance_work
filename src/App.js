@@ -10,7 +10,7 @@ function App() {
   return (
     <>
     <div className="App">
-      {/* nav and footer */}
+      {/* nav*/}
       <Nav />
 
       {/* Home page */}
