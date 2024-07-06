@@ -5,6 +5,7 @@ import Title from './Components/Home page/Title.tsx';
 import Product from './Components/Home page/Product.tsx';
 import Feature from './Components/Home page/Feature.tsx';
 import Price from './Components/Home page/Pricing.tsx';
+import Footer from './Components/Footer.tsx';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
       <Product />
       <Feature />
       <Price />
+
+      {/* footer */}
+      <Footer />
     </div>
     
     </>

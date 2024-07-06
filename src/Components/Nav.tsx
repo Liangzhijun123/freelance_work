@@ -11,7 +11,7 @@ const Nav = () => {
   return (
     <>
       {/* Desktop navigation */}
-      <div className="hidden xl:flex md:flex bg-[#08050F] h-[96px] w-full items-center justify-between xl:px-[300px] md:px-[100px] p-[24px] drop-shadow-xl shadow-[#7A16E6]">
+      <div className="hidden xl:flex md:flex bg-[#08050F] h-[96px] w-full items-center justify-evenly xl:px-[300px] md:px-[100px] p-[24px]  border-bottom-gradient">
         {/* Left section */}
         <div className="flex gap-[10px]">
           <p className="text-white font-Sora text-[32px] font-bold">Lantern</p>

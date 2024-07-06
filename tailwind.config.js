@@ -13,7 +13,19 @@ export const theme = {
       gradientVia: '#F9C80E',
       gradientTo: '#f9c60e13',
     },
+    borderColor: {
+      'gradient-to-r': 'transparent',
+    },
   },
 };
-export const plugins = [];
-
+export const plugins = [
+  function ({ addUtilities }) {
+    addUtilities({
+      '.border-b-gradient-to-r': {
+        borderBottom: '4px solid transparent',
+        borderImage: 'linear-gradient(to right, white, #7A16E6, white)',
+        borderImageSlice: 1,
+      },
+    }, ['responsive', 'hover']);
+  },
+];

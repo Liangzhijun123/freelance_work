@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+/* Add this CSS to your stylesheet */
+.border-bottom-gradient {
+  position: relative;
+}
+
+.border-bottom-gradient::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px; 
+  background: linear-gradient(to right, #7b16e600, #7A16E6, #7b16e600);
+}
