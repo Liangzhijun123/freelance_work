@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Nav = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -20,10 +21,16 @@ const Nav = () => {
         {/* Navigation links */}
         <div className="flex xl:gap-[50px] md:gap-[25px]">
           <a
-            href="#home"
+            href="Home.tsx"
             className="relative text-[#D2D2D5] font-Inter text-[18px] hover:text-white border-hidden hover-gradient-border"
           >
             Home
+          </a>
+          <a
+            href="Store.tsx"
+            className="relative text-[#D2D2D5] font-Inter text-[18px] hover:text-white border-hidden hover-gradient-border"
+          >
+            Store
           </a>
           <a
             href="#editor"
@@ -38,11 +45,12 @@ const Nav = () => {
             Menu
           </a>
           <a
-            href="#store"
+            href="#"
             className="relative text-[#D2D2D5] font-Inter text-[18px] hover:text-white border-hidden hover-gradient-border"
           >
-            Store
+            Story Line
           </a>
+          
         </div>
 
         {/* Right section */}
@@ -81,7 +89,7 @@ const Nav = () => {
       {showMobileMenu && (
         <div className="md:hidden flex flex-col absolute right-0 w-[40%] bg-[#08050F] p-[16px] z-30">
           <a
-            href="#home"
+            href="home"
             className="text-[#D2D2D5] font-Inter text-[18px] hover:text-white border:hidden hover:border-b border-b-[#F9C80E] mb-[8px]"
           >
             Home
