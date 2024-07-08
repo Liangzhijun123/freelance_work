@@ -3,11 +3,35 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Home from './pages/home';
+import Nav from './Components/Nav.tsx';
+import Store from './pages/Store.tsx';
+import Footer from './Components/Footer.tsx';
+
+const router = createBrowserRouter([
+
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/store",
+    element: <Store />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+     {/* nav*/}
+     <Nav />
+    <RouterProvider router={router} />
+    {/* footer */}
+    <Footer />
   </React.StrictMode>
 );
 
