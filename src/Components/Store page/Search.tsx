@@ -3,7 +3,7 @@ import React from "react";
 const Search = () => {
   return (
     <>
-      <div className="flex md:flex-row flex-col gap-[12px] justify-center items-center w-full md:mt-0 mt-20">
+      <div className="flex md:flex-row flex-col gap-[12px] justify-center px-5 w-full md:mt-0 mt-20">
         <div className="flex xl:w-[1100px] md:w-[600px] w-[335px] h-[48px] border-[0.5px] border-[#F9C80E] rounded-[8px]">
           <div className="flex flex-row gap-[8px] justify-center items-center px-5">
             <img src="/image/search.svg" className="h-[19.5px] w-[19.5px]" />

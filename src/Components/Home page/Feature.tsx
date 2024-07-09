@@ -52,7 +52,7 @@ const Feature = () => {
     <div className="mt-[150px]">
       <div className="flex flex-col justify-center items-center gap-[80px]">
         <div className="flex flex-col justify-center items-center gap-[10px]">
-          <p className="text-white text-[16px] border border-[#7D6407] font-Inter bg-[#3E3204] bg-opacity-60 rounded-[16px] h-[28px] w-[164px] mx-auto">
+          <p className="text-white flex justify-center text-[16px] border border-[#7D6407] font-Inter bg-[#3E3204] bg-opacity-60 rounded-[16px] h-[28px] w-[164px] mx-auto">
             Lantern's features
           </p>
           <p className="text-white md:text-[48px] text-[24px] font-Sora font-semibold w-full text-center">
