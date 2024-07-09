@@ -38,7 +38,7 @@ const Product = () => {
         </p>
 
         {/* Desktop */}
-        <div className="hidden md:flex flex-row justify-center gap-[32px] w-full   ">
+        <div className="hidden md:flex flex-row gap-[32px] w-full max-w-[100vw] overflow-x-scroll no-scrollbar ">
           <div className="transform transition duration-300 ">
             <Slide_one />
           </div>

@@ -17,7 +17,7 @@ const Slide_one = () => {
     
   return (
     <>
-      <div className="hidden md:flex flex-row justify-center gap-[32px]">
+      <div className="hidden md:flex flex-row justify-center gap-[32px] max-w-[100vw]">
         {Featured.map((item, index) => (
           <div
             key={index}
