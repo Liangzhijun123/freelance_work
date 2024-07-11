@@ -47,3 +47,27 @@
     opacity: 1;
   }
 }
+
+.pop-out-overlay {
+  position: absolute;
+  top: 1250px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+.pop-out-content {
+  background-color: #d8ca9660;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 1188px; 
+  height: 1993px; 
+  
+  z-index: 1010;
+}
+

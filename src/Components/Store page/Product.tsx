@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Slideshow.css";
 import Slide_one from "./Slide_show/Slide_one.tsx";
 import Slide_two from "./Slide_show/Slide_two.tsx";
@@ -47,6 +47,8 @@ const Product = () => {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [popOutOpen, setPopOutOpen] = useState(false); // State to track pop-out visibility
+  const popOutRef = useRef<HTMLDivElement>(null); // Ref to the pop-out content
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % 4);
@@ -56,23 +58,44 @@ const Product = () => {
     setCurrentSlide((prev) => (prev - 1 + 4) % 4);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 3000);
+  // Toggle pop-out open/close
+  const togglePopOut = () => {
+    setPopOutOpen(!popOutOpen);
+  };
 
-    return () => clearInterval(interval);
+  // Close pop-out when clicking outside of it
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (popOutRef.current && !popOutRef.current.contains(event.target as Node)) {
+        setPopOutOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
-  const renderSlides = (slides) => (
+  const renderSlides = (slides: JSX.Element[]) => (
     <>
       <div className="hidden md:flex flex-row gap-[32px] w-full max-w-[100vw] overflow-x-scroll no-scrollbar">
         {slides.map((slide, index) => (
           <div key={index} className="transform transition duration-300">
-            {slide}
+            {/* Clickable slide component */}
+            <div onClick={togglePopOut}>{slide}</div>
           </div>
         ))}
       </div>
+
+      {/* Pop-out overlay and content */}
+      {popOutOpen && (
+        <div className="pop-out-overlay">
+          <div ref={popOutRef} className="pop-out-content">
+            
+          </div>
+        </div>
+      )}
 
       <div className="md:hidden mt-20 slideshow-container">
         {slides.map((slide, index) => (
@@ -216,6 +239,7 @@ const Product = () => {
           {renderSlides(anniversarySaleSlides)}
         </div>
       </div>
+      
     </>
   );
 };
