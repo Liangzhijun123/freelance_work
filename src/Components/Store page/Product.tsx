@@ -8,26 +8,52 @@ import Slide_five from "./Slide_show_two/Slide_one.tsx";
 import Slide_six from "./Slide_show_two/Slide_two.tsx";
 import Slide_seven from "./Slide_show_two/Slide_three.tsx";
 import Slide_eight from "./Slide_show_two/Slide_four.tsx";
+import Slide_nine from "./Slide_show_three/Slide_one.tsx";
+import Slide_ten from "./Slide_show_three/Slide_two.tsx";
+import Slide_eleven from "./Slide_show_three/Slide_three.tsx";
+import Slide_twelve from "./Slide_show_three/Slide_four.tsx";
+import Slide_13 from "./Slide_show_four/Slide_one.tsx";
+import Slide_14 from "./Slide_show_four/Slide_two.tsx";
+import Slide_15 from "./Slide_show_four/Slide_three.tsx";
+import Slide_16 from "./Slide_show_four/Slide_four.tsx";
 
 const Product = () => {
-  const slides = [
+  const featuredSlides = [
     <Slide_one />,
     <Slide_two />,
     <Slide_three />,
     <Slide_four />,
+  ];
+
+  const bestSellersSlides = [
     <Slide_five />,
     <Slide_six />,
     <Slide_seven />,
     <Slide_eight />,
   ];
+
+  const newReleasesSlides = [
+    <Slide_nine />,
+    <Slide_ten />,
+    <Slide_eleven />,
+    <Slide_twelve />,
+  ];
+
+  const anniversarySaleSlides = [
+    <Slide_13 />,
+    <Slide_14 />,
+    <Slide_15 />,
+    <Slide_16 />,
+  ];
+
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setCurrentSlide((prev) => (prev + 1) % 4);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrentSlide((prev) => (prev - 1 + 4) % 4);
   };
 
   useEffect(() => {
@@ -38,6 +64,47 @@ const Product = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const renderSlides = (slides) => (
+    <>
+      <div className="hidden md:flex flex-row gap-[32px] w-full max-w-[100vw] overflow-x-scroll no-scrollbar">
+        {slides.map((slide, index) => (
+          <div key={index} className="transform transition duration-300">
+            {slide}
+          </div>
+        ))}
+      </div>
+
+      <div className="md:hidden mt-20 slideshow-container">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`mySlides ${index === currentSlide ? "fade" : ""}`}
+            style={{ display: index === currentSlide ? "block" : "none" }}
+          >
+            {slide}
+          </div>
+        ))}
+
+        <a className="prev" onClick={prevSlide}>
+          &#10094;
+        </a>
+        <a className="next" onClick={nextSlide}>
+          &#10095;
+        </a>
+
+        <div className="dots flex justify-center mt-10">
+          {slides.map((_, index) => (
+            <span
+              key={index}
+              className={`dot ${index === currentSlide ? "active" : ""}`}
+              onClick={() => setCurrentSlide(index)}
+            ></span>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+
   return (
     <>
       <div className="flex">
@@ -45,52 +112,7 @@ const Product = () => {
           <p className="text-white text-nowrap text-[28px] md:text-[52px] xl:text-[32px] font-Sora font-bold w-full text-left">
             Featured <span className="text-[#F9C80E]"> Products </span>
           </p>
-
-          {/* Desktop */}
-          <div className="hidden md:flex flex-row gap-[32px] w-full max-w-[100vw] overflow-x-scroll no-scrollbar">
-            <div className="transform transition duration-300">
-              <Slide_one />
-            </div>
-            <div>
-              <Slide_two />
-            </div>
-            <div>
-              <Slide_three />
-            </div>
-            <div>
-              <Slide_four />
-            </div>
-          </div>
-
-          {/* Mobile */}
-          <div className="md:hidden mt-20 slideshow-container">
-            {slides.map((slide, index) => (
-              <div
-                key={index}
-                className={`mySlides ${index === currentSlide ? "fade" : ""}`}
-                style={{ display: index === currentSlide ? "block" : "none" }}
-              >
-                {slide}
-              </div>
-            ))}
-
-            <a className="prev" onClick={prevSlide}>
-              &#10094;
-            </a>
-            <a className="next" onClick={nextSlide}>
-              &#10095;
-            </a>
-
-            <div className="dots flex justify-center mt-10">
-              {slides.map((_, index) => (
-                <span
-                  key={index}
-                  className={`dot ${index === currentSlide ? "active" : ""}`}
-                  onClick={() => setCurrentSlide(index)}
-                ></span>
-              ))}
-            </div>
-          </div>
+          {renderSlides(featuredSlides)}
         </div>
       </div>
 
@@ -107,52 +129,7 @@ const Product = () => {
               </a>
             </div>
           </div>
-
-          {/* Desktop */}
-          <div className="hidden md:flex flex-row gap-[32px] w-full max-w-[100vw] overflow-x-scroll no-scrollbar">
-            <div className="transform transition duration-300">
-              <Slide_five />
-            </div>
-            <div>
-              <Slide_six />
-            </div>
-            <div>
-              <Slide_seven />
-            </div>
-            <div>
-              <Slide_eight />
-            </div>
-          </div>
-
-          {/* Mobile */}
-          <div className="md:hidden mt-20 slideshow-container">
-            {slides.map((slide, index) => (
-              <div
-                key={index}
-                className={`mySlides ${index === currentSlide ? "fade" : ""}`}
-                style={{ display: index === currentSlide ? "block" : "none" }}
-              >
-                {slide}
-              </div>
-            ))}
-
-            <a className="prev" onClick={prevSlide}>
-              &#10094;
-            </a>
-            <a className="next" onClick={nextSlide}>
-              &#10095;
-            </a>
-
-            <div className="dots flex justify-center mt-10">
-              {slides.map((_, index) => (
-                <span
-                  key={index}
-                  className={`dot ${index === currentSlide ? "active" : ""}`}
-                  onClick={() => setCurrentSlide(index)}
-                ></span>
-              ))}
-            </div>
-          </div>
+          {renderSlides(bestSellersSlides)}
         </div>
       </div>
 
@@ -203,6 +180,40 @@ const Product = () => {
               Enjoy Our All Story
             </p>
           </div>
+        </div>
+      </div>
+
+      <div className="flex">
+        <div className="flex flex-col justify-center w-full xl:px-72 md:px-10 xl:gap-[24px] px-10 md:gap-[20px] mt-20">
+          <div className="flex md:flex-row flex-col items-center">
+            <p className="text-white w-[335px] text-[28px] md:text-[52px] xl:text-[32px] font-Inter font-bold md:w-full text-left">
+              Dungeons & Dragons{" "}
+              <span className="text-[#F9C80E]"> New Releases </span>
+            </p>
+            <div className="flex justify-center flex-none w-[335px] md:w-[100px] h-[40px] border-[0.5px] border-[#F9C80E] hover:bg-[#F9C80E] p-1 rounded-[8px]">
+              <a className="font-Inter font-medium text-[18px] hover:text-black text-white">
+                View all
+              </a>
+            </div>
+          </div>
+          {renderSlides(newReleasesSlides)}
+        </div>
+      </div>
+
+      <div className="flex">
+        <div className="flex flex-col justify-center w-full xl:px-72 md:px-10 xl:gap-[24px] px-10 md:gap-[20px] mt-20">
+          <div className="flex md:flex-row flex-col items-center">
+            <p className="text-white w-[335px] text-[28px] md:text-[52px] xl:text-[32px] font-Inter font-bold md:w-full text-left">
+            Anniversary{" "}
+              <span className="text-[#F9C80E]">  Sale </span>
+            </p>
+            <div className="flex justify-center flex-none w-[335px] md:w-[100px] h-[40px] border-[0.5px] border-[#F9C80E] hover:bg-[#F9C80E] p-1 rounded-[8px]">
+              <a className="font-Inter font-medium text-[18px] hover:text-black text-white">
+                View all
+              </a>
+            </div>
+          </div>
+          {renderSlides(anniversarySaleSlides)}
         </div>
       </div>
     </>
