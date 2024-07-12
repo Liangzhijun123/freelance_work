@@ -67,7 +67,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   width: 1188px; 
   height: 1993px; 
-  
+  overflow: auto;
   z-index: 1010;
 }
 

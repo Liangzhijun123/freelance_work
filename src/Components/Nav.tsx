@@ -39,7 +39,7 @@ const Nav = () => {
             Editor
           </a>
           <a
-            href="#menu"
+            href="/menu"
             className="relative text-[#D2D2D5] font-Inter text-[18px] hover:text-white border-hidden hover-gradient-border"
           >
             Menu
@@ -107,7 +107,7 @@ const Nav = () => {
             Editor
           </a>
           <a
-            href="#menu"
+            href="/menu"
             className="relative text-[#D2D2D5] font-Inter text-[18px] hover:text-white border-hidden hover-gradient-border"
           >
             Menu

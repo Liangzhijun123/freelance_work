@@ -92,7 +92,12 @@ const Product = () => {
       {popOutOpen && (
         <div className="pop-out-overlay">
           <div ref={popOutRef} className="pop-out-content">
-            
+              <div className="flex flex-row gap-[48px] justify-center">
+                <div>
+                  <img></img>
+                </div>
+
+              </div>
           </div>
         </div>
       )}
@@ -226,9 +231,9 @@ const Product = () => {
       <div className="flex">
         <div className="flex flex-col justify-center w-full xl:px-72 md:px-10 xl:gap-[24px] px-10 md:gap-[20px] mt-20">
           <div className="flex md:flex-row flex-col items-center">
-            <p className="text-white w-[335px] text-[28px] md:text-[52px] xl:text-[32px] font-Inter font-bold md:w-full text-left">
+            <p className="text-[#F9C80E] w-[335px] text-[28px] md:text-[52px] xl:text-[32px] font-Inter font-bold md:w-full text-left">
             Anniversary{" "}
-              <span className="text-[#F9C80E]">  Sale </span>
+              <span className="text-white">  Sale </span>
             </p>
             <div className="flex justify-center flex-none w-[335px] md:w-[100px] h-[40px] border-[0.5px] border-[#F9C80E] hover:bg-[#F9C80E] p-1 rounded-[8px]">
               <a className="font-Inter font-medium text-[18px] hover:text-black text-white">
