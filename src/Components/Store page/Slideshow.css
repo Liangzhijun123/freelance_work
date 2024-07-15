@@ -61,13 +61,14 @@
 
 
 .pop-out-content {
-  background-color: #d8ca9660;
+  background-color: #d8ca963b;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  width: 1188px; 
+  border-radius: 32px;
+  
+  
   height: 1993px; 
   overflow: auto;
   z-index: 1010;
+  backdrop-filter: blur(300px);
 }
 

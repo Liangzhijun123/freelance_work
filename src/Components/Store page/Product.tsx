@@ -66,7 +66,10 @@ const Product = () => {
   // Close pop-out when clicking outside of it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (popOutRef.current && !popOutRef.current.contains(event.target as Node)) {
+      if (
+        popOutRef.current &&
+        !popOutRef.current.contains(event.target as Node)
+      ) {
         setPopOutOpen(false);
       }
     };
@@ -90,14 +93,89 @@ const Product = () => {
 
       {/* Pop-out overlay and content */}
       {popOutOpen && (
-        <div className="pop-out-overlay">
+        <div className="pop-out-overlay xl:w-[1188px] xl:h-[1993px] md:min-w-[988px] md:h-[993px] w-[335px] h-[450px]">
           <div ref={popOutRef} className="pop-out-content">
-              <div className="flex flex-row gap-[48px] justify-center">
-                <div>
-                  <img></img>
-                </div>
-
+            <div className="flex md:flex-row flex-col gap-[48px] justify-center md:p-6 p-2">
+              <div className="h-full w-full">
+                <img
+                  src="/image/pic_onee.svg"
+                  className="md:block hidden h-full w-full  object-cover"
+                />
+                <img
+                  src="/image/pic_oneee.svg"
+                  className="md:hidden block h-full w-full object-cover"
+                />
               </div>
+ 
+              <div className="flex flex-col justify-center gap-[49px] md:w-[481px] w-[295px]">
+                <div className=" ">
+                  <p className="text-white font-Sora font-semibold md:text-[40px] text-[24px]">
+                    D&D Vecna: Eve of Ruin
+                  </p>
+                </div>
+                <div className="md:p-6 p-3 flex flex-col gap-[16px] border border-[#F9C80E] rounded-[20px] md:h-[279px] h-[450px]">
+                  <div className="flex flex-col gap-[8px] font-Inter">
+                    <p className="text-white md:text-nowrap md:text-full text-wrap md:w-full w-[155px]">
+                      Author:{" "}
+                      <span className="text-[#F9C80E]">
+                        Wizards of the Coast
+                      </span>
+                    </p>
+                    <p className="text-white  font-Inter md:text-wrap md:text-full text-wrap md:w-full w-[255px]">
+                      Package: A Combination Of Art And Adventure Content. More
+                      Detail On Each Item Is Below.
+                    </p>
+                    <p className="text-white font-Inter font-semibold text-[32px]">
+                      $24.99
+                      <span className="font-Inter font-normal text-[12px]">
+                        USD
+                      </span>
+                    </p>
+                  </div>
+                  <div className="flex md:flex-row flex-col gap-[22px]">
+                    <div className="flex gap-[10px] text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[142px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black items-center justify-center group">
+                      <div className="relative">
+                        <img
+                          src="/image/star.svg"
+                          alt="star"
+                          className="block group-hover:hidden"
+                        />
+                        <img
+                          src="/image/blackstar.svg"
+                          alt="blackstar"
+                          className="hidden group-hover:block"
+                        />
+                      </div>
+                      <a href="#Wishlist" className="  group-hover:text-black">
+                        Wishlist
+                      </a>
+                    </div>
+                    <div className="flex gap-[10px] text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[114px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black items-center justify-center group">
+                      <div className="relative">
+                        <img
+                          src="/image/GIft.svg"
+                          alt="star"
+                          className="block group-hover:hidden"
+                        />
+                        <img
+                          src="/image/BlackGift.svg"
+                          alt="blackstar"
+                          className="hidden group-hover:block"
+                        />
+                      </div>
+                      <a href="#Gift" className="  group-hover:text-black">
+                        Gift
+                      </a>
+                    </div>
+                    <div className="flex gap-[10px] text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[133px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black items-center justify-center group">
+                      <a href="#BuyNow" className="  group-hover:text-black">
+                        Buy Now
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
@@ -163,7 +241,11 @@ const Product = () => {
 
       <div className="flex md:flex-row flex-col px-10 gap-[24px] mt-[80px] justify-center items-center xl:px-[300px] md:px-[100px] py-[48px]">
         <div className="relative flex justify-center items-center w-full md:w-auto rounded-[8px] border border-transparent hover:border-[#FFC240] group">
-          <img src="/image/row_pic.svg" className="w-full md:w-[600px]" alt="Urban" />
+          <img
+            src="/image/row_pic.svg"
+            className="w-full md:w-[600px]"
+            alt="Urban"
+          />
           <div className="absolute flex flex-col gap-2 text-center">
             <p className="text-white text-[24px] font-bold font-Sora group-hover:text-[#F9C80E]">
               Urban
@@ -175,7 +257,11 @@ const Product = () => {
         </div>
 
         <div className="relative flex justify-center items-center w-full md:w-auto rounded-[8px] border border-transparent hover:border-[#FFC240] group">
-          <img src="/image/row_pic2.svg" className="w-full md:w-[600px]" alt="Sci-Fi" />
+          <img
+            src="/image/row_pic2.svg"
+            className="w-full md:w-[600px]"
+            alt="Sci-Fi"
+          />
           <div className="absolute flex flex-col gap-2 text-center">
             <p className="text-white text-[24px] font-bold font-Sora group-hover:text-[#F9C80E]">
               Sci-Fi
@@ -187,7 +273,11 @@ const Product = () => {
         </div>
 
         <div className="relative flex justify-center items-center w-full md:w-auto rounded-[8px] border border-transparent hover:border-[#FFC240] group">
-          <img src="/image/row_pic3.svg" className="w-full md:w-[600px]" alt="Fantasy" />
+          <img
+            src="/image/row_pic3.svg"
+            className="w-full md:w-[600px]"
+            alt="Fantasy"
+          />
           <div className="absolute flex flex-col gap-2 text-center">
             <p className="text-white text-[24px] font-bold font-Sora group-hover:text-[#F9C80E]">
               Fantasy
@@ -199,7 +289,11 @@ const Product = () => {
         </div>
 
         <div className="relative flex justify-center items-center w-full md:w-auto rounded-[8px] border border-transparent hover:border-[#FFC240] group">
-          <img src="/image/row_pic4.svg" className="w-full md:w-[600px]" alt="All Story" />
+          <img
+            src="/image/row_pic4.svg"
+            className="w-full md:w-[600px]"
+            alt="All Story"
+          />
           <div className="absolute flex flex-col gap-2 text-center">
             <p className="text-white text-[24px] font-bold font-Sora group-hover:text-[#F9C80E]">
               All Story
@@ -232,8 +326,7 @@ const Product = () => {
         <div className="flex flex-col justify-center w-full xl:px-72 md:px-10 xl:gap-[24px] px-10 md:gap-[20px] mt-20">
           <div className="flex md:flex-row flex-col items-center">
             <p className="text-[#F9C80E] w-[335px] text-[28px] md:text-[52px] xl:text-[32px] font-Inter font-bold md:w-full text-left">
-            Anniversary{" "}
-              <span className="text-white">  Sale </span>
+              Anniversary <span className="text-white"> Sale </span>
             </p>
             <div className="flex justify-center flex-none w-[335px] md:w-[100px] h-[40px] border-[0.5px] border-[#F9C80E] hover:bg-[#F9C80E] p-1 rounded-[8px]">
               <a className="font-Inter font-medium text-[18px] hover:text-black text-white">
@@ -244,7 +337,6 @@ const Product = () => {
           {renderSlides(anniversarySaleSlides)}
         </div>
       </div>
-      
     </>
   );
 };
