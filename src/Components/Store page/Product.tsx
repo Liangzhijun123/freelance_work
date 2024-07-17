@@ -18,6 +18,23 @@ import Slide_15 from "./Slide_show_four/Slide_three.tsx";
 import Slide_16 from "./Slide_show_four/Slide_four.tsx";
 
 const Product = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [popOutOpen, setPopOutOpen] = useState(false);
+  const popOutRef = useRef<HTMLDivElement>(null);
+
+  const images = [
+    "/image/pic_oneeee.svg",
+    "/image/pic_oneeee.svg",
+    "/image/pic_oneeee.svg",
+    "/image/pic_oneeee.svg",
+    "/image/pic_oneeee.svg",
+    "/image/pic_oneeee.svg",
+    "/image/pic_oneeee.svg",
+    "/image/pic_oneeee.svg",
+    "/image/pic_oneeee.svg",
+  ];
+
   const featuredSlides = [
     <Slide_one />,
     <Slide_two />,
@@ -46,9 +63,17 @@ const Product = () => {
     <Slide_16 />,
   ];
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [popOutOpen, setPopOutOpen] = useState(false); // State to track pop-out visibility
-  const popOutRef = useRef<HTMLDivElement>(null); // Ref to the pop-out content
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % 4);
@@ -58,12 +83,10 @@ const Product = () => {
     setCurrentSlide((prev) => (prev - 1 + 4) % 4);
   };
 
-  // Toggle pop-out open/close
   const togglePopOut = () => {
     setPopOutOpen(!popOutOpen);
   };
 
-  // Close pop-out when clicking outside of it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -85,95 +108,136 @@ const Product = () => {
       <div className="hidden md:flex flex-row gap-[32px] w-full max-w-[100vw] overflow-x-scroll no-scrollbar">
         {slides.map((slide, index) => (
           <div key={index} className="transform transition duration-300">
-            {/* Clickable slide component */}
             <div onClick={togglePopOut}>{slide}</div>
           </div>
         ))}
       </div>
 
-      {/* Pop-out overlay and content */}
       {popOutOpen && (
         <div className="pop-out-overlay xl:w-[1188px] xl:h-[1993px] md:min-w-[988px] md:h-[993px] w-[335px] h-[450px]">
           <div ref={popOutRef} className="pop-out-content">
-            <div className="flex md:flex-row flex-col gap-[48px] justify-center md:p-6 p-2">
-              <div className="h-full w-full">
-                <img
-                  src="/image/pic_onee.svg"
-                  className="md:block hidden h-full w-full  object-cover"
-                />
-                <img
-                  src="/image/pic_oneee.svg"
-                  className="md:hidden block h-full w-full object-cover"
-                />
+            <div className="flex flex-col  justify-center md:p-6 p-2">
+              <div className="flex md:flex-row flex-col gap-[48px]">
+                <div className="h-full w-full">
+                  <img
+                    src="/image/pic_onee.svg"
+                    className="md:block hidden h-full w-full  object-cover"
+                  />
+                  <img
+                    src="/image/pic_oneee.svg"
+                    className="md:hidden block h-full w-full object-cover"
+                  />
+                </div>
+
+                <div className="flex flex-col justify-center gap-[49px] md:w-[481px] w-[295px]">
+                  <div className=" ">
+                    <p className="text-white font-Sora font-semibold md:text-[40px] text-[24px]">
+                      D&D Vecna: Eve of Ruin
+                    </p>
+                  </div>
+                  <div className="md:p-6 p-3 flex flex-col gap-[16px] border border-[#F9C80E] rounded-[20px] md:h-[279px] h-[450px]">
+                    <div className="flex flex-col gap-[8px] font-Inter">
+                      <p className="text-white md:text-nowrap md:text-full text-wrap md:w-full w-[155px]">
+                        Author:{" "}
+                        <span className="text-[#F9C80E]">
+                          Wizards of the Coast
+                        </span>
+                      </p>
+                      <p className="text-white  font-Inter md:text-wrap md:text-full text-wrap md:w-full w-[255px]">
+                        Package: A Combination Of Art And Adventure Content.
+                        More Detail On Each Item Is Below.
+                      </p>
+                      <p className="text-white font-Inter font-semibold text-[32px]">
+                        $24.99
+                        <span className="font-Inter font-normal text-[12px]">
+                          USD
+                        </span>
+                      </p>
+                    </div>
+                    <div className="flex md:flex-row flex-col gap-[22px]">
+                      <div className="flex gap-[10px] text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[142px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black items-center justify-center group">
+                        <div className="relative">
+                          <img
+                            src="/image/star.svg"
+                            alt="star"
+                            className="block group-hover:hidden"
+                          />
+                          <img
+                            src="/image/blackstar.svg"
+                            alt="blackstar"
+                            className="hidden group-hover:block"
+                          />
+                        </div>
+                        <a
+                          href="#Wishlist"
+                          className="  group-hover:text-black"
+                        >
+                          Wishlist
+                        </a>
+                      </div>
+                      <div className="flex gap-[10px] text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[114px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black items-center justify-center group">
+                        <div className="relative">
+                          <img
+                            src="/image/GIft.svg"
+                            alt="star"
+                            className="block group-hover:hidden"
+                          />
+                          <img
+                            src="/image/BlackGift.svg"
+                            alt="blackstar"
+                            className="hidden group-hover:block"
+                          />
+                        </div>
+                        <a href="#Gift" className="  group-hover:text-black">
+                          Gift
+                        </a>
+                      </div>
+                      <div className="flex gap-[10px] text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[133px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black items-center justify-center group">
+                        <a href="#BuyNow" className="  group-hover:text-black">
+                          Buy Now
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
- 
-              <div className="flex flex-col justify-center gap-[49px] md:w-[481px] w-[295px]">
-                <div className=" ">
-                  <p className="text-white font-Sora font-semibold md:text-[40px] text-[24px]">
-                    D&D Vecna: Eve of Ruin
-                  </p>
+
+              <div className="flex items-center">
+                <button onClick={handlePrev} className="group p-2">
+                  <img
+                    src="/image/leftarrow.svg"
+                    alt="right arrow"
+                    className="block group-hover:hidden"
+                  />
+                  <img
+                    src="/image/blackleftarrow.svg"
+                    alt="black right arrow"
+                    className="hidden group-hover:block"
+                  />
+                </button>
+                <div className="flex flex-row  gap-[8px] overflow-hidden">
+                  {images
+                    .slice(currentIndex, currentIndex + 3)
+                    .map((src, index) => (
+                      <img
+                        key={index}
+                        src={src}
+                        className="w-[175px] h-[161px]"
+                      ></img>
+                    ))}
                 </div>
-                <div className="md:p-6 p-3 flex flex-col gap-[16px] border border-[#F9C80E] rounded-[20px] md:h-[279px] h-[450px]">
-                  <div className="flex flex-col gap-[8px] font-Inter">
-                    <p className="text-white md:text-nowrap md:text-full text-wrap md:w-full w-[155px]">
-                      Author:{" "}
-                      <span className="text-[#F9C80E]">
-                        Wizards of the Coast
-                      </span>
-                    </p>
-                    <p className="text-white  font-Inter md:text-wrap md:text-full text-wrap md:w-full w-[255px]">
-                      Package: A Combination Of Art And Adventure Content. More
-                      Detail On Each Item Is Below.
-                    </p>
-                    <p className="text-white font-Inter font-semibold text-[32px]">
-                      $24.99
-                      <span className="font-Inter font-normal text-[12px]">
-                        USD
-                      </span>
-                    </p>
-                  </div>
-                  <div className="flex md:flex-row flex-col gap-[22px]">
-                    <div className="flex gap-[10px] text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[142px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black items-center justify-center group">
-                      <div className="relative">
-                        <img
-                          src="/image/star.svg"
-                          alt="star"
-                          className="block group-hover:hidden"
-                        />
-                        <img
-                          src="/image/blackstar.svg"
-                          alt="blackstar"
-                          className="hidden group-hover:block"
-                        />
-                      </div>
-                      <a href="#Wishlist" className="  group-hover:text-black">
-                        Wishlist
-                      </a>
-                    </div>
-                    <div className="flex gap-[10px] text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[114px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black items-center justify-center group">
-                      <div className="relative">
-                        <img
-                          src="/image/GIft.svg"
-                          alt="star"
-                          className="block group-hover:hidden"
-                        />
-                        <img
-                          src="/image/BlackGift.svg"
-                          alt="blackstar"
-                          className="hidden group-hover:block"
-                        />
-                      </div>
-                      <a href="#Gift" className="  group-hover:text-black">
-                        Gift
-                      </a>
-                    </div>
-                    <div className="flex gap-[10px] text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[133px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black items-center justify-center group">
-                      <a href="#BuyNow" className="  group-hover:text-black">
-                        Buy Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                <button onClick={handleNext} className="group p-2">
+                  <img
+                    src="/image/rightarrow.svg"
+                    alt="right arrow"
+                    className="block group-hover:hidden"
+                  />
+                  <img
+                    src="/image/blackrightarrow.svg"
+                    alt="black right arrow"
+                    className="hidden group-hover:block"
+                  />
+                </button>
               </div>
             </div>
           </div>

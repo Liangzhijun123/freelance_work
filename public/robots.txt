@@ -1,51 +1,56 @@
-<div className="flex flex-col justify-center w-full xl:px-72 md:px-10 xl:gap-[24px] px-10 md:gap-[20px] mt-10">
-        <p className="text-white text-nowrap text-[28px] md:text-[52px] xl:text-[48px] font-Sora font-bold w-full text-left">
-          Featured <span className="text-[#F9C80E]"> Products </span>
-        </p>
+import React, { useState } from "react";
 
-        {/* Desktop */}
-        <div className="hidden md:flex flex-row gap-[32px] w-full max-w-[100vw] overflow-x-scroll no-scrollbar ">
-          <div className="transform transition duration-300 ">
-            <Slide_five/>
-          </div>
-          <div>
-            <Slide_six />
-          </div>
-          <div>
-            <Slide_seven />
-          </div>
-          <div>
-            <Slide_eight />
-          </div>
-        </div>
+const Pop_out = ({ images }) => {
+  const [slideIndex, setSlideIndex] = useState(0);
 
-        {/* Mobile */}
-        <div className="md:hidden mt-20 slideshow-container">
-          {slides.map((slide, index) => (
-            <div
-              key={index}
-              className={`mySlides ${index === currentSlide ? "fade" : ""}`}
-              style={{ display: index === currentSlide ? "block" : "none" }}
-            >
-              {slide}
-            </div>
-          ))}
+  const plusDivs = (n) => {
+    const newIndex = slideIndex + n;
+    if (newIndex >= 0 && newIndex < images.length) {
+      setSlideIndex(newIndex);
+    }
+  };
 
-          <a className="prev" onClick={prevSlide}>
-            &#10094;
-          </a>
-          <a className="next" onClick={nextSlide}>
-            &#10095;
-          </a>
-
-          <div className="dots flex justify-center mt-10">
-            {slides.map((_, index) => (
-              <span
-                key={index}
-                className={`dot ${index === currentSlide ? "active" : ""}`}
-                onClick={() => setCurrentSlide(index)}
-              ></span>
-            ))}
+  const showDivs = (index) => {
+    return (
+      <div className="slideshow-container">
+        {images.map((image, idx) => (
+          <div
+            key={idx}
+            className={idx === index ? "mySlides fade" : "mySlides"}
+            style={{ display: idx === index ? "block" : "none" }}
+          >
+            <img src={image} alt={`Slide ${idx + 1}`} />
           </div>
-        </div>
+        ))}
+        <button className="prev group p-2" onClick={() => plusDivs(-1)}>
+          <img
+            src="/image/leftarrow.svg"
+            alt="left arrow"
+            className="block group-hover:hidden"
+          />
+          <img
+            src="/image/blackleftarrow.svg"
+            alt="black left arrow"
+            className="hidden group-hover:block"
+          />
+        </button>
+        <button className="next group p-2" onClick={() => plusDivs(1)}>
+          <img
+            src="/image/rightarrow.svg"
+            alt="right arrow"
+            className="block group-hover:hidden"
+          />
+          <img
+            src="/image/blackrightarrow.svg"
+            alt="black right arrow"
+            className="hidden group-hover:block"
+          />
+        </button>
       </div>
+    );
+  };
+
+  return showDivs(slideIndex);
+};
+
+export default Pop_out;
