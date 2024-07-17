@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Slideshow.css";
+import "./Popshow.css";
 import Slide_one from "./Slide_show/Slide_one.tsx";
 import Slide_two from "./Slide_show/Slide_two.tsx";
 import Slide_three from "./Slide_show/Slide_three.tsx";
@@ -16,24 +17,17 @@ import Slide_13 from "./Slide_show_four/Slide_one.tsx";
 import Slide_14 from "./Slide_show_four/Slide_two.tsx";
 import Slide_15 from "./Slide_show_four/Slide_three.tsx";
 import Slide_16 from "./Slide_show_four/Slide_four.tsx";
+import Slide_17 from "./Slide_show_five/Slide_one.tsx";
+import Slide_18 from "./Slide_show_five/Slide_two.tsx";
+import Slide_19 from "./Slide_show_five/Slide_three.tsx";
 
 const Product = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [visibleSlidesCount, setVisibleSlidesCount] = useState(3);
+
   const [popOutOpen, setPopOutOpen] = useState(false);
   const popOutRef = useRef<HTMLDivElement>(null);
-
-  const images = [
-    "/image/pic_oneeee.svg",
-    "/image/pic_oneeee.svg",
-    "/image/pic_oneeee.svg",
-    "/image/pic_oneeee.svg",
-    "/image/pic_oneeee.svg",
-    "/image/pic_oneeee.svg",
-    "/image/pic_oneeee.svg",
-    "/image/pic_oneeee.svg",
-    "/image/pic_oneeee.svg",
-  ];
 
   const featuredSlides = [
     <Slide_one />,
@@ -63,15 +57,34 @@ const Product = () => {
     <Slide_16 />,
   ];
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+  const popoutSlides = [<Slide_17 />, <Slide_18 />, <Slide_19 />];
+
+  const updateVisibleSlidesCount = () => {
+    if (window.innerWidth <= 768) {
+      setVisibleSlidesCount(1);
+    } else {
+      setVisibleSlidesCount(3);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateVisibleSlidesCount);
+    updateVisibleSlidesCount();
+
+    return () => {
+      window.removeEventListener("resize", updateVisibleSlidesCount);
+    };
+  }, []);
+
+  const showPreviousSlide = () => {
+    setCurrentSlideIndex((prev) =>
+      prev > 0 ? prev - 1 : popoutSlides.length - visibleSlidesCount
     );
   };
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+  const showNextSlide = () => {
+    setCurrentSlideIndex((prev) =>
+      prev < popoutSlides.length - visibleSlidesCount ? prev + 1 : 0
     );
   };
 
@@ -116,21 +129,20 @@ const Product = () => {
       {popOutOpen && (
         <div className="pop-out-overlay xl:w-[1188px] xl:h-[1993px] md:min-w-[988px] md:h-[993px] w-[335px] h-[450px]">
           <div ref={popOutRef} className="pop-out-content">
-            <div className="flex flex-col  justify-center md:p-6 p-2">
-              <div className="flex md:flex-row flex-col gap-[48px]">
+            <div className="flex flex-col justify-center md:p-6 p-2">
+              <div className="flex items-center md:flex-row flex-col gap-[48px]">
                 <div className="h-full w-full">
                   <img
                     src="/image/pic_onee.svg"
-                    className="md:block hidden h-full w-full  object-cover"
+                    className="md:block hidden h-full w-full object-cover"
                   />
                   <img
                     src="/image/pic_oneee.svg"
                     className="md:hidden block h-full w-full object-cover"
                   />
                 </div>
-
-                <div className="flex flex-col justify-center gap-[49px] md:w-[481px] w-[295px]">
-                  <div className=" ">
+                <div className="flex flex-col justify-center xl:gap-[49px] md:gap-[24px] md:w-[481px] w-[295px]">
+                  <div>
                     <p className="text-white font-Sora font-semibold md:text-[40px] text-[24px]">
                       D&D Vecna: Eve of Ruin
                     </p>
@@ -143,7 +155,7 @@ const Product = () => {
                           Wizards of the Coast
                         </span>
                       </p>
-                      <p className="text-white  font-Inter md:text-wrap md:text-full text-wrap md:w-full w-[255px]">
+                      <p className="text-white font-Inter md:text-wrap md:text-full text-wrap md:w-full w-[255px]">
                         Package: A Combination Of Art And Adventure Content.
                         More Detail On Each Item Is Below.
                       </p>
@@ -168,10 +180,7 @@ const Product = () => {
                             className="hidden group-hover:block"
                           />
                         </div>
-                        <a
-                          href="#Wishlist"
-                          className="  group-hover:text-black"
-                        >
+                        <a href="#Wishlist" className="group-hover:text-black">
                           Wishlist
                         </a>
                       </div>
@@ -188,12 +197,12 @@ const Product = () => {
                             className="hidden group-hover:block"
                           />
                         </div>
-                        <a href="#Gift" className="  group-hover:text-black">
+                        <a href="#Gift" className="group-hover:text-black">
                           Gift
                         </a>
                       </div>
                       <div className="flex gap-[10px] text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[133px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black items-center justify-center group">
-                        <a href="#BuyNow" className="  group-hover:text-black">
+                        <a href="#BuyNow" className="group-hover:text-black">
                           Buy Now
                         </a>
                       </div>
@@ -202,42 +211,48 @@ const Product = () => {
                 </div>
               </div>
 
-              <div className="flex items-center">
-                <button onClick={handlePrev} className="group p-2">
-                  <img
-                    src="/image/leftarrow.svg"
-                    alt="right arrow"
-                    className="block group-hover:hidden"
-                  />
-                  <img
-                    src="/image/blackleftarrow.svg"
-                    alt="black right arrow"
-                    className="hidden group-hover:block"
-                  />
-                </button>
-                <div className="flex flex-row  gap-[8px] overflow-hidden">
-                  {images
-                    .slice(currentIndex, currentIndex + 3)
-                    .map((src, index) => (
-                      <img
+              <div className="slideshow-container xl:right-[270px] md:right-[170px] top-6">
+                <div className="flex items-center w-full">
+                  <a className="prev group mr-2" onClick={showPreviousSlide}>
+                    <img
+                      src="/image/leftarrow.svg"
+                      alt="left arrow"
+                      className="block group-hover:hidden"
+                    />
+                    <img
+                      src="/image/blackleftarrow.svg"
+                      alt="black left arrow"
+                      className="hidden group-hover:block"
+                    />
+                  </a>
+                  <div className="slides-wrapper flex overflow-hidden">
+                    {popoutSlides.map((slide, index) => (
+                      <div
                         key={index}
-                        src={src}
-                        className="w-[175px] h-[161px]"
-                      ></img>
+                        className={`slide-item w-full ${
+                          index >= currentSlideIndex &&
+                          index < currentSlideIndex + visibleSlidesCount
+                            ? "block"
+                            : "hidden"
+                        } ${index === currentSlideIndex ? "fade" : ""}`}
+                      >
+                        {slide}
+                      </div>
                     ))}
+                  </div>
+                  <a className="next group ml-2" onClick={showNextSlide}>
+                    <img
+                      src="/image/rightarrow.svg"
+                      alt="right arrow"
+                      className="block group-hover:hidden"
+                    />
+                    <img
+                      src="/image/blackrightarrow.svg"
+                      alt="black right arrow"
+                      className="hidden group-hover:block"
+                    />
+                  </a>
                 </div>
-                <button onClick={handleNext} className="group p-2">
-                  <img
-                    src="/image/rightarrow.svg"
-                    alt="right arrow"
-                    className="block group-hover:hidden"
-                  />
-                  <img
-                    src="/image/blackrightarrow.svg"
-                    alt="black right arrow"
-                    className="hidden group-hover:block"
-                  />
-                </button>
               </div>
             </div>
           </div>
