@@ -129,7 +129,7 @@ const Product = () => {
       {popOutOpen && (
         <div className="pop-out-overlay xl:w-[1188px] xl:h-[1993px] md:min-w-[988px] md:h-[993px] w-[335px] h-[450px]">
           <div ref={popOutRef} className="pop-out-content">
-            <div className="flex flex-col justify-center md:p-6 p-2">
+            <div className="flex flex-col justify-center md:p-6 p-2 gap-10">
               <div className="flex items-center md:flex-row flex-col gap-[48px]">
                 <div className="h-full w-full">
                   <img
@@ -211,7 +211,7 @@ const Product = () => {
                 </div>
               </div>
 
-              <div className="slideshow-container xl:right-[270px] md:right-[170px] top-6">
+              <div className="slideshow-container xl:right-[270px] md:right-[170px] ">
                 <div className="flex items-center w-full">
                   <a className="prev group mr-2" onClick={showPreviousSlide}>
                     <img
@@ -252,6 +252,79 @@ const Product = () => {
                       className="hidden group-hover:block"
                     />
                   </a>
+                </div>
+              </div>
+
+              <div className=" rounded-[20px] bg-[#191401]">
+                <div className="flex flex-row  gap-[20px] md:w-[990px] md:px-[40px] py-[20px] px-[10px] items-start">
+                  <img src="/image/yellow.svg" className="md:block hidden"></img>
+                  <img src="/image/mobileyellow.svg" className="block md:hidden"></img>
+                  <div className="flex flex-col gap-[32px] ">
+                    <p className="text-white font-Sora md:text-[32px] text-[24px] md:w-full w-[200px]">How to Access Your Content</p>
+                    <div className="flex flex-col gap-[20px]">
+                      <div className="flex flex-row gap-[16px] items-start">
+                        <img src="/image/checkyello.svg"></img>
+                        <p className="text-[#CAC6DD] font-Inter text-[18px] md:w-full w-[150px] ">
+                          On the Web: Access the Rulebook here.
+                        </p>
+                      </div>
+                      <div className="flex flex-row gap-[16px] items-start">
+                        <img src="/image/checkyello.svg"></img>
+                        <p className="text-[#CAC6DD] font-Inter text-[18px] xl:w-full md:w-[700px] w-[150px]">
+                          R01120 VTT: Click the Bookshelf icon in any game using
+                          the D&D 5e Character Shoet to see and search all rules
+                          entries.
+                        </p>
+                      </div>
+                      <div className="flex flex-row gap-[16px] items-start">
+                        <img src="/image/checkyello.svg"></img>
+                        <p className="text-[#CAC6DD] font-Inter text-[18px] xl:w-full md:w-[700px] w-[150px]">
+                          R01120 Characters: Click the Compendium button at the
+                          top of the page.
+                        </p>
+                      </div>
+                      <p className="text-white font-Inter font-semibold text-[24px]">Character Sheet</p>
+                      <div className="flex flex-row gap-[16px] items-start">
+                        <img src="/image/checkyello.svg"></img>
+                        <p className="text-[#CAC6DD] font-Inter text-[18px] xl:w-full md:w-[700px] w-[150px]">
+                          Q01120 Characters Create your character here and add
+                          it to any game.
+                        </p>
+                      </div>
+                      <div className="flex flex-row gap-[16px] items-start">
+                        <img src="/image/checkyello.svg"></img>
+                        <p className="text-[#CAC6DD] font-Inter text-[18px] xl:w-full md:w-[700px] w-[150px]">
+                          201120 VTT: When starting a new game. select the D&D
+                          5e Character Sheet. In-game. use the Character button
+                          from the Journal tab.
+                        </p>
+                      </div>
+                      <div className="flex flex-row gap-[16px] items-start">
+                        <img src="/image/checkyello.svg"></img>
+                        <p className="text-[#CAC6DD] font-Inter text-[18px] xl:w-full md:w-[700px] w-[150px]">
+                          Whether you're in the midst of an epic quest or
+                          embarking on a spontaneous adventure.
+                        </p>
+                      </div>
+                      <p className="text-white font-Inter font-semibold text-[24px]">Adventures</p>
+                      <div className="flex flex-row gap-[16px] items-start">
+                        <img src="/image/checkyello.svg"></img>
+                        <p className="text-[#CAC6DD] font-Inter text-[18px] xl:w-full md:w-[700px] w-[150px]">
+                          Click the "Create Game with this Module" button from
+                          this page„
+                        </p>
+                      </div>
+                      <p className="text-white font-Inter font-semibold text-[24px]">Digital Token Pack</p>
+                      <div className="flex flex-row gap-[16px] items-start">
+                        <img src="/image/checkyello.svg"></img>
+                        <p className="text-[#CAC6DD] font-Inter text-[18px] xxl:w-full md:w-[700px] w-[150px]">
+                          R01120 VTT: In your Art Library of any game. click
+                          Premium Assets. Select "D&D Vecna: Eve of Ruin Art
+                          Pack. Drag tokens to the Tabletop.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
