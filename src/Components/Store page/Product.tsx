@@ -20,6 +20,11 @@ import Slide_16 from "./Slide_show_four/Slide_four.tsx";
 import Slide_17 from "./Slide_show_five/Slide_one.tsx";
 import Slide_18 from "./Slide_show_five/Slide_two.tsx";
 import Slide_19 from "./Slide_show_five/Slide_three.tsx";
+import Slide_20 from "./Slide_show_six/Slide_one.tsx";
+import Slide_21 from "./Slide_show_six/Slide_two.tsx";
+import Slide_22 from "./Slide_show_six/Slide_three.tsx";
+import Slide_23 from "./Slide_show_six/Slide_four.tsx";
+import Slide_24 from "./Slide_show_six/Slide_five.tsx";
 
 const Product = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -28,6 +33,14 @@ const Product = () => {
 
   const [popOutOpen, setPopOutOpen] = useState(false);
   const popOutRef = useRef<HTMLDivElement>(null);
+
+  const popoutslide = [
+    <Slide_20 />,
+    <Slide_21 />,
+    <Slide_22 />,
+    <Slide_23 />,
+    <Slide_24 />,
+  ];
 
   const featuredSlides = [
     <Slide_one />,
@@ -257,10 +270,18 @@ const Product = () => {
 
               <div className=" rounded-[20px] bg-[#191401]">
                 <div className="flex flex-row  gap-[20px] md:w-[990px] md:px-[40px] py-[20px] px-[10px] items-start">
-                  <img src="/image/yellow.svg" className="md:block hidden"></img>
-                  <img src="/image/mobileyellow.svg" className="block md:hidden"></img>
+                  <img
+                    src="/image/yellow.svg"
+                    className="md:block hidden"
+                  ></img>
+                  <img
+                    src="/image/mobileyellow.svg"
+                    className="block md:hidden"
+                  ></img>
                   <div className="flex flex-col gap-[32px] ">
-                    <p className="text-white font-Sora md:text-[32px] text-[24px] md:w-full w-[200px]">How to Access Your Content</p>
+                    <p className="text-white font-Sora md:text-[32px] text-[24px] md:w-full w-[200px]">
+                      How to Access Your Content
+                    </p>
                     <div className="flex flex-col gap-[20px]">
                       <div className="flex flex-row gap-[16px] items-start">
                         <img src="/image/checkyello.svg"></img>
@@ -283,7 +304,9 @@ const Product = () => {
                           top of the page.
                         </p>
                       </div>
-                      <p className="text-white font-Inter font-semibold text-[24px]">Character Sheet</p>
+                      <p className="text-white font-Inter font-semibold text-[24px]">
+                        Character Sheet
+                      </p>
                       <div className="flex flex-row gap-[16px] items-start">
                         <img src="/image/checkyello.svg"></img>
                         <p className="text-[#CAC6DD] font-Inter text-[18px] xl:w-full md:w-[700px] w-[150px]">
@@ -306,7 +329,9 @@ const Product = () => {
                           embarking on a spontaneous adventure.
                         </p>
                       </div>
-                      <p className="text-white font-Inter font-semibold text-[24px]">Adventures</p>
+                      <p className="text-white font-Inter font-semibold text-[24px]">
+                        Adventures
+                      </p>
                       <div className="flex flex-row gap-[16px] items-start">
                         <img src="/image/checkyello.svg"></img>
                         <p className="text-[#CAC6DD] font-Inter text-[18px] xl:w-full md:w-[700px] w-[150px]">
@@ -314,7 +339,9 @@ const Product = () => {
                           this page„
                         </p>
                       </div>
-                      <p className="text-white font-Inter font-semibold text-[24px]">Digital Token Pack</p>
+                      <p className="text-white font-Inter font-semibold text-[24px]">
+                        Digital Token Pack
+                      </p>
                       <div className="flex flex-row gap-[16px] items-start">
                         <img src="/image/checkyello.svg"></img>
                         <p className="text-[#CAC6DD] font-Inter text-[18px] xxl:w-full md:w-[700px] w-[150px]">
@@ -325,6 +352,32 @@ const Product = () => {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-[24px] w-full">
+                <p className="text-white text-nowrap font-Sora font-semibold text-[24px]">
+                  You might also like...
+                </p>
+                <div className="hidden md:flex flex-row gap-[19px] overflow-x-auto no-scrollbar">
+                  {popoutslide.map((SlideComponent, index) => (
+                    <div
+                      key={index}
+                      className="" 
+                    >
+                      {SlideComponent}
+                    </div>
+                  ))}
+                </div>
+                <div className="flex md:hidden flex-row gap-[19px] overflow-x-auto no-scrollbar">
+                  {popoutslide.map((SlideComponent, index) => (
+                    <div
+                      key={index}
+                      className="" 
+                    >
+                      {SlideComponent}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
