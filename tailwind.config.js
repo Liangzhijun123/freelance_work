@@ -2,6 +2,7 @@
 export const content = [
   "./src/**/*.{js,jsx,ts,tsx}",
 ];
+
 export const theme = {
   extend: {
     fontFamily: {
@@ -13,17 +14,25 @@ export const theme = {
       gradientVia: '#F9C80E',
       gradientTo: '#f9c60e13',
     },
-    borderColor: {
-      'gradient-to-r': 'transparent',
-    },
   },
 };
+
 export const plugins = [
   function ({ addUtilities }) {
     addUtilities({
       '.border-b-gradient-to-r': {
+        borderBottom: '1px solid transparent',
+        borderImage: 'linear-gradient(to right, #7b16e600, #7A16E6, #7b16e600)',
+        borderImageSlice: -1,
+      },
+      '.border-t-gradient-to-r': {
+        borderTop: '1px solid transparent',
+        borderImage: 'linear-gradient(to right, #7b16e600, #7A16E6, #7b16e600)',
+        borderImageSlice: -1,
+      },
+      '.border-bottom-gradient': {
         borderBottom: '4px solid transparent',
-        borderImage: 'linear-gradient(to right, white, #7A16E6, white)',
+        borderImage: 'linear-gradient(to right, rgba(185, 91, 234, 0.0), rgba(185, 91, 234, 0.4), rgba(185, 91, 234, 0.0))',
         borderImageSlice: 1,
       },
     }, ['responsive', 'hover']);

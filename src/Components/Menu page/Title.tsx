@@ -16,7 +16,7 @@ const Title = () => {
         />
 
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="flex flex-col justify-center xl:gap-5 md:gap-[12px] gap-[16px] w-full max-w-[1155px] mx-auto xl:px-4 md:px-20 px-5 xl:mt-[-100px] md:mt-[-20px]">
+          <div className="flex flex-col justify-center xl:gap-5 md:gap-[12px] gap-[16px] w-full max-w-[1155px] mx-auto xl:px-4 md:px-20 px-5 xl:mt-[-200px] md:mt-[-20px]">
             
             <p className="text-white text-[32px] md:text-[52px] xl:text-[48px] font-Sora font-bold xl:w-[600px] md:max-w-[550px] w-full text-left">
             Rediscover with{" "}
