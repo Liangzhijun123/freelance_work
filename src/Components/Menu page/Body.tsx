@@ -167,9 +167,7 @@ const Body = () => {
                     alt="blackstar"
                     className="block relative inset-0"
                   />
-                  <p className=" text-[#F9C80E]">
-                    LAYERS
-                  </p>
+                  <p className=" text-[#F9C80E]">LAYERS</p>
                 </div>
                 <div className="group items-center flex flex-col ">
                   <img
@@ -239,32 +237,127 @@ const Body = () => {
               }}
             >
               <div className="flex flex-col justify-center py-5  gap-[24px]">
-                  <p className="font-Sora font-semibold flex items-center justify-center text-[20px] text-white">Sub-menu</p>
-                  <div className="flex flex-col">
-                    <div id="menu" className="px-[10px]  h-[40px] p-2 w-full hover:bg-gradient-to-r from-[#53546c4a] to-[#000000]">
-                      <a href="/menu" className="text-[#E9E9EA]">Menu</a>
-                    </div>
-                    <div  className="px-[10px]  h-[40px] p-2 w-full hover:bg-gradient-to-r from-[#53546c4a] to-[#000000]">
-                      <a  className="text-[#E9E9EA]">Editor</a>
-                    </div>
-                    <div  className="px-[10px]  h-[40px] p-2 w-full hover:bg-gradient-to-r from-[#53546c4a] to-[#000000]">
-                      <a  className="text-[#E9E9EA]">Sub-menu 1</a>
-                    </div>
-                    <div  className="px-[10px]  h-[40px] p-2 w-full hover:bg-gradient-to-r from-[#53546c4a] to-[#000000]">
-                      <a  className="text-[#E9E9EA]">Sub-menu 2</a>
-                    </div>
-                    <div  className="px-[10px]  h-[40px] p-2 w-full hover:bg-gradient-to-r from-[#53546c4a] to-[#000000]">
-                      <a  className="text-[#E9E9EA]">Sub-menu 3</a>
-                    </div>
-                    <div  className="px-[10px]  h-[40px] p-2 w-full hover:bg-gradient-to-r from-[#53546c4a] to-[#000000]">
-                      <a  className="text-[#E9E9EA]">Storyline </a>
-                    </div>
+                <p className="font-Sora font-semibold flex items-center justify-center text-[20px] text-white">
+                  Sub-menu
+                </p>
+                <div className="flex flex-col">
+                  <div
+                    id="menu"
+                    className="px-[10px]  h-[40px] p-2 w-full hover:bg-gradient-to-r from-[#53546c4a] to-[#000000]"
+                  >
+                    <a href="/menu" className="text-[#E9E9EA]">
+                      Menu
+                    </a>
                   </div>
+                  <div className="px-[10px]  h-[40px] p-2 w-full hover:bg-gradient-to-r from-[#53546c4a] to-[#000000]">
+                    <a className="text-[#E9E9EA]">Editor</a>
+                  </div>
+                  <div className="px-[10px]  h-[40px] p-2 w-full hover:bg-gradient-to-r from-[#53546c4a] to-[#000000]">
+                    <a className="text-[#E9E9EA]">Sub-menu 1</a>
+                  </div>
+                  <div className="px-[10px]  h-[40px] p-2 w-full hover:bg-gradient-to-r from-[#53546c4a] to-[#000000]">
+                    <a className="text-[#E9E9EA]">Sub-menu 2</a>
+                  </div>
+                  <div className="px-[10px]  h-[40px] p-2 w-full hover:bg-gradient-to-r from-[#53546c4a] to-[#000000]">
+                    <a className="text-[#E9E9EA]">Sub-menu 3</a>
+                  </div>
+                  <div className="px-[10px]  h-[40px] p-2 w-full hover:bg-gradient-to-r from-[#53546c4a] to-[#000000]">
+                    <a className="text-[#E9E9EA]">Storyline </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div className="w-[1272px]">
-            <p className="text-white">Menu</p>
+          <div className="flex flex-col gap-[40px]">
+            <div className="w-[1272px] h-[88px] flex flex-row mb-[40px] gap-[697px] border-b-[#F9C80E] border-b">
+              <div>
+                <p className="text-white font-Sora font-semibold text-[32px]">
+                  Menu
+                </p>
+              </div>
+              <div className="flex flex-row gap-[16px]">
+                <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[230px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                  View New Creations
+                </a>
+                <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[230px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                  View New Collection
+                </a>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-[32px]">
+              <div className="relative">
+                <img src="/image/pic_1.svg" className="" alt="Background" />
+
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-[21px]">
+                  <div className="flex flex-col gap-[16px] items-center">
+                    <p className="text-white font-Sora font-semibold text-[40px]">
+                      Backgrounds
+                    </p>
+                    <p className="text-white font-Inter font-medium text-[18px] w-[556px] text-center">
+                      View the New backgrounds that users around the world have
+                      created and shared, or create your own.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-row gap-[10px] items-center">
+                    <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[275px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                      View New Backgrounds
+                    </a>
+                    <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[275px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                      Create New Backgrounds
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="relative">
+                <img src="/image/pic_2.svg" className="" alt="Background" />
+
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-[21px]">
+                  <div className="flex flex-col gap-[16px] items-center">
+                    <p className="text-white font-Sora font-semibold text-[40px]">
+                      Feats
+                    </p>
+                    <p className="text-white font-Inter font-medium text-[18px] w-[556px] text-center">
+                      View the New feats that users around the world have
+                      created and shared, or create your own.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-row gap-[10px] items-center">
+                    <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[275px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                      View New Feats
+                    </a>
+                    <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[275px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                      Create New Feats
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="relative">
+                <img src="/image/pic_3.svg" className="" alt="Background" />
+
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-[21px]">
+                  <div className="flex flex-col gap-[16px] items-center">
+                    <p className="text-white font-Sora font-semibold text-[40px]">
+                      Magic Items
+                    </p>
+                    <p className="text-white font-Inter font-medium text-[18px] w-[556px] text-center">
+                      View the New magic items that users around the world have
+                      created and shared, or create your own.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-row gap-[10px] items-center">
+                    <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[275px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                      View New Magic Items
+                    </a>
+                    <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[275px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                      Create New Magic Items
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
