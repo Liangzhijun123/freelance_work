@@ -1,9 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
+
+const dummy = [
+  {
+    src: "/image/pic_1.svg",
+    title: "Backgrounds",
+    description:
+      "View the New backgrounds that users around the world have created and shared, or create your own.",
+    button1: "View New Backgrounds",
+    button2: "Create New Backgrounds",
+  },
+  {
+    src: "/image/pic_2.svg",
+    title: "Feats",
+    description:
+      "View the New feats that users around the world have created and shared, or create your own.",
+    button1: "View New Feats",
+    button2: "Create New Feats",
+  },
+  {
+    src: "/image/pic_3.svg",
+    title: "Magic Items",
+    description:
+      "View the New magic items that users around the world have created and shared, or create your own.",
+    button1: "View New Magic Items",
+    button2: "Create New Magic Items",
+  },
+  {
+    src: "/image/pic_4.svg",
+    title: "Monsters",
+    description:
+      "View the New monster? that users around the world have created and shared, or create your own.",
+    button1: "View New Monsters",
+    button2: "Create New Monsters",
+  },
+  {
+    src: "/image/pic_5.svg",
+    title: "Races",
+    description:
+      "View the homebrew races that users around the world have created and shared, or create your own.",
+    button1: "View New Races",
+    button2: "Create New Races",
+  },
+  {
+    src: "/image/pic_6.svg",
+    title: "Spells",
+    description:
+      "View the New spells that users around the world have created and shared, or create your own.",
+    button1: "View New Spells",
+    button2: "Create New Spells",
+  },
+  {
+    src: "/image/pic_7.svg",
+    title: "Subclasses",
+    description:
+      "View the New subclasses that users around the world have created and shared, or create your own.",
+    button1: "View New Subclasses",
+    button2: "Create New Subclasses",
+  },
+];
 
 const Body = () => {
   return (
     <div className="flex">
-      <div className="flex flex-row gap-[24px] mt-[-150px]">
+      <div className="flex flex-row gap-[24px] xl:mt-[-150px] md:mt-[-10px]">
+        {/* left section */}
         <div
           className="relative w-[80px] h-[1121px] rounded-[16px] flex flex-col"
           style={{
@@ -157,11 +217,6 @@ const Body = () => {
             <div className="flex flex-col  items-center gap-[40px] relative mt-40 ">
               <div className="flex flex-col items-center gap-[24px] ">
                 <div className="group items-center flex flex-col">
-                  {/* <img
-                    src="/image/blacklayer.svg"
-                    alt="star"
-                    className="block group-hover:hidden"
-                  /> */}
                   <img
                     src="/image/layer.svg"
                     alt="blackstar"
@@ -219,7 +274,8 @@ const Body = () => {
           </div>
         </div>
 
-        <div className="flex flex-row  gap-[24px] relative ">
+        <div className="flex md:flex-row flex-col  gap-[24px] relative ">
+          {/* sub menu */}
           <div
             className="relative w-[220px] h-[334px] rounded-[16px] flex flex-row"
             style={{
@@ -268,95 +324,59 @@ const Body = () => {
               </div>
             </div>
           </div>
+
+          {/* right section */}
           <div className="flex flex-col gap-[40px]">
-            <div className="w-[1272px] h-[88px] flex flex-row mb-[40px] gap-[697px] border-b-[#F9C80E] border-b">
-              <div>
+            <div className="w-full md:h-[88px] h-[100px] md:mb-[40px] mb-[70px]">
+              <div className="flex xl:flex-row md:flex-col flex-col gap-[16px] md:gap-[40px] border-b-[#F9C80E] border-b pb-4">
                 <p className="text-white font-Sora font-semibold text-[32px]">
                   Menu
                 </p>
-              </div>
-              <div className="flex flex-row gap-[16px]">
-                <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[230px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
-                  View New Creations
-                </a>
-                <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[230px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
-                  View New Collection
-                </a>
+
+                <div className="flex md:flex-row flex-col gap-[16px] xl:mt-0 md:mt-5 mt-0 xl:ml-[600px] ml-0">
+                  <a className="text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[230px] w-[240px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                    View New Creations
+                  </a>
+                  <a className="text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[230px] w-[240px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                    View New Collection
+                  </a>
+                </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-[32px]">
-              <div className="relative">
-                <img src="/image/pic_1.svg" className="" alt="Background" />
 
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-[21px]">
-                  <div className="flex flex-col gap-[16px] items-center">
-                    <p className="text-white font-Sora font-semibold text-[40px]">
-                      Backgrounds
-                    </p>
-                    <p className="text-white font-Inter font-medium text-[18px] w-[556px] text-center">
-                      View the New backgrounds that users around the world have
-                      created and shared, or create your own.
-                    </p>
-                  </div>
+            <div className="grid md:grid-cols-2 grid-cols-1 xl:gap-[32px] md:gap-[24px] gap-[24px] xl:mt-0 md:mt-5">
+              {dummy.map((item, index) => (
+                <div
+                  className="relative overflow-hidden rounded-[16px]"
+                  key={index}
+                >
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    className="xl:w-full xl:h-auto md:w-[350px] md:h-[450px] h-[300px] w-[257px] object-cover rounded-t-[16px]"
+                  />
 
-                  <div className="flex flex-row gap-[10px] items-center">
-                    <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[275px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
-                      View New Backgrounds
-                    </a>
-                    <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[275px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
-                      Create New Backgrounds
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="relative">
-                <img src="/image/pic_2.svg" className="" alt="Background" />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center xl:gap-[21px] md:gap-[18px] gap-[10px] p-4">
+                    <div className="flex flex-col gap-[16px] items-center text-center">
+                      <p className="text-white font-Sora font-semibold md:text-[40px] text-[24px]">
+                        {item.title}
+                      </p>
+                      <p className="text-white font-Inter font-medium md:text-[18px] text-[16px] xl:w-[556px] md:w-[350px] w-[220px]">
+                        {item.description}
+                      </p>
+                    </div>
 
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-[21px]">
-                  <div className="flex flex-col gap-[16px] items-center">
-                    <p className="text-white font-Sora font-semibold text-[40px]">
-                      Feats
-                    </p>
-                    <p className="text-white font-Inter font-medium text-[18px] w-[556px] text-center">
-                      View the New feats that users around the world have
-                      created and shared, or create your own.
-                    </p>
-                  </div>
-
-                  <div className="flex flex-row gap-[10px] items-center">
-                    <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[275px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
-                      View New Feats
-                    </a>
-                    <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[275px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
-                      Create New Feats
-                    </a>
+                    <div className="flex xl:flex-row md:flex-col flex-col gap-[10px] items-center">
+                      <a className="text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[275px] w-[240px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                        {item.button1}
+                      </a>
+                      <a className="text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[275px] w-[240px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                        {item.button2}
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="relative">
-                <img src="/image/pic_3.svg" className="" alt="Background" />
-
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-[21px]">
-                  <div className="flex flex-col gap-[16px] items-center">
-                    <p className="text-white font-Sora font-semibold text-[40px]">
-                      Magic Items
-                    </p>
-                    <p className="text-white font-Inter font-medium text-[18px] w-[556px] text-center">
-                      View the New magic items that users around the world have
-                      created and shared, or create your own.
-                    </p>
-                  </div>
-
-                  <div className="flex flex-row gap-[10px] items-center">
-                    <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[275px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
-                      View New Magic Items
-                    </a>
-                    <a className="text-[#F9C80E]  font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 w-[275px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
-                      Create New Magic Items
-                    </a>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
