@@ -326,18 +326,18 @@ const Body = () => {
           </div>
 
           {/* right section */}
-          <div className="flex flex-col gap-[40px]">
+          <div className="flex flex-col gap-[40px] relative">
             <div className="w-full md:h-[88px] h-[100px] md:mb-[40px] mb-[70px]">
-              <div className="flex xl:flex-row md:flex-col flex-col gap-[16px] md:gap-[40px] border-b-[#F9C80E] border-b pb-4">
+              <div className="flex flex-col md:flex-row gap-[16px] md:gap-[40px] border-b-[#F9C80E] border-b pb-4">
                 <p className="text-white font-Sora font-semibold text-[32px]">
                   Menu
                 </p>
 
-                <div className="flex md:flex-row flex-col gap-[16px] xl:mt-0 md:mt-5 mt-0 xl:ml-[600px] ml-0">
-                  <a className="text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[230px] w-[240px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                <div className="flex flex-col md:flex-row gap-[16px] md:mt-5 mt-0 md:ml-auto ml-0">
+                  <a className="text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[230px] w-full h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
                     View New Creations
                   </a>
-                  <a className="text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[230px] w-[240px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                  <a className="text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[230px] w-full h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
                     View New Collection
                   </a>
                 </div>
@@ -353,24 +353,24 @@ const Body = () => {
                   <img
                     src={item.src}
                     alt={item.title}
-                    className="xl:w-full xl:h-auto md:w-[350px] md:h-[450px] h-[300px] w-[257px] object-cover rounded-t-[16px]"
+                    className="xl:w-[620px] xl:h-[291px] md:w-[350px] md:h-[450px] h-[300px] object-cover rounded-t-[16px]"
                   />
 
-                  <div className="absolute inset-0 flex flex-col items-center justify-center xl:gap-[21px] md:gap-[18px] gap-[10px] p-4">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center xl:gap-[21px] md:gap-[18px] gap-[10px] ">
                     <div className="flex flex-col gap-[16px] items-center text-center">
                       <p className="text-white font-Sora font-semibold md:text-[40px] text-[24px]">
                         {item.title}
                       </p>
-                      <p className="text-white font-Inter font-medium md:text-[18px] text-[16px] xl:w-[556px] md:w-[350px] w-[220px]">
+                      <p className="text-white font-Inter font-medium md:text-[18px] text-[16px] xl:w-[556px] md:w-[350px] w-full">
                         {item.description}
                       </p>
                     </div>
 
-                    <div className="flex xl:flex-row md:flex-col flex-col gap-[10px] items-center">
-                      <a className="text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[275px] w-[240px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                    <div className="flex flex-col xl:flex-row  gap-[10px] items-center">
+                      <a className="text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[275px] w-full h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
                         {item.button1}
                       </a>
-                      <a className="text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[275px] w-[240px] h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
+                      <a className="text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[275px] w-full h-[48px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black flex items-center justify-center">
                         {item.button2}
                       </a>
                     </div>
