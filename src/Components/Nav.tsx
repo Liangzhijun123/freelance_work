@@ -33,7 +33,7 @@ const Nav = () => {
             Store
           </a>
           <a
-            href="#editor"
+            href="/editor"
             className="relative text-[#D2D2D5] font-Inter text-[18px] hover:text-white border-hidden hover-gradient-border"
           >
             Editor
@@ -101,7 +101,7 @@ const Nav = () => {
             Store
           </a>
           <a
-            href="#editor"
+            href="/editor"
             className="relative text-[#D2D2D5] font-Inter text-[18px] hover:text-white border-hidden hover-gradient-border"
           >
             Editor

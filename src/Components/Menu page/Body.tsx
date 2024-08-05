@@ -274,7 +274,7 @@ const Body = () => {
           </div>
         </div>
 
-        <div className="flex md:flex-row flex-col  gap-[24px] relative ">
+        <div className="flex md:flex-col flex-col xl:flex-row  gap-[24px] relative ">
           {/* sub menu */}
           <div
             className="relative w-[220px] h-[334px] rounded-[16px] flex flex-row"
@@ -306,7 +306,9 @@ const Body = () => {
                     </a>
                   </div>
                   <div className="px-[10px]  h-[40px] p-2 w-full hover:bg-gradient-to-r from-[#53546c4a] to-[#000000]">
-                    <a className="text-[#E9E9EA]">Editor</a>
+                    <a href="/editor" className="text-[#E9E9EA]">
+                      Editor
+                    </a>
                   </div>
                   <div className="px-[10px]  h-[40px] p-2 w-full hover:bg-gradient-to-r from-[#53546c4a] to-[#000000]">
                     <a className="text-[#E9E9EA]">Sub-menu 1</a>

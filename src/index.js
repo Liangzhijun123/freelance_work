@@ -12,6 +12,7 @@ import Nav from './Components/Nav.tsx';
 import Store from './pages/Store.tsx';
 import Footer from './Components/Footer.tsx';
 import Menu from './pages/Menu.tsx';
+import Editor from './pages/Editor.tsx';
 
 const router = createBrowserRouter([
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/menu",
     element: <Menu />,
+  },
+  {
+    path: "/editor",
+    element: <Editor />,
   },
 ]);
 
