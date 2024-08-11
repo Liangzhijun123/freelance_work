@@ -1,6 +1,37 @@
 import React, { useState } from "react";
 import "./Button.css";
+
 const Body = () => {
+  // Separate state variables for each dropdown
+  const [isOpenFirst, setIsOpenFirst] = useState(false);
+  const [isOpenSecond, setIsOpenSecond] = useState(false);
+  const [isOpenThird, setIsOpenThird] = useState(false);
+  const [isOpenFour, setIsOpenFour] = useState(false);
+
+  // Toggle function for the first dropdown
+  const toggleFirstDropdown = () => {
+    setIsOpenFirst(!isOpenFirst);
+    setIsOpenSecond(false); // Close the other dropdown when this one is toggled
+  };
+
+  // Toggle function for the second dropdown
+  const toggleSecondDropdown = () => {
+    setIsOpenSecond(!isOpenSecond);
+    setIsOpenFirst(false); // Close the other dropdown when this one is toggled
+  };
+
+  const toggleThirdDropdown = () => {
+    setIsOpenThird(!isOpenThird);
+    setIsOpenSecond(false);
+    setIsOpenFirst(false); // Close the other dropdown when this one is toggled
+  };
+  const toggleFourDropdown = () => {
+    setIsOpenFour(!isOpenFour);
+    setIsOpenThird(false);
+    setIsOpenSecond(false);
+    setIsOpenFirst(false); // Close the other dropdown when this one is toggled
+  };
+
   const GradientCircle = () => {
     const [isChecked, setIsChecked] = useState(false);
 
@@ -289,7 +320,7 @@ const Body = () => {
             </div>
           </div>
 
-          <div className="flex md:flex-col flex-col xl:flex-row  gap-[24px] relative ">
+          <div className="flex md:flex-col flex-col xl:flex-row  gap-[24px] relative">
             {/* sub menu */}
             <div
               className="relative w-[220px] h-[334px] rounded-[16px] flex flex-row"
@@ -345,7 +376,7 @@ const Body = () => {
             {/* right section */}
             <div className="flex flex-col gap-[40px] relative">
               <div
-                className="  xl:w-[1400px] md:w-[750px] w-[260px] h-[1993px] rounded-[16px] flex flex-row"
+                className="  xl:w-[1400px] xl:h-[2200px] md:min-w-[750px] md:h-[2700px] w-[260px] h-[4100px] rounded-[16px] flex flex-row"
                 style={{
                   backgroundColor: "black",
                   border: "1px solid rgba(185, 91, 234, 0.4)",
@@ -404,13 +435,15 @@ const Body = () => {
                       Character Preferences
                     </p>
 
-                    <div className="flex flex-row  justify-center mt-10 gap-[152px]">
-                      <div className="flex flex-col gap-[32px] w-[445px]">
+                    <div className="flex flex-row  justify-center mt-10 xl:gap-[152px] md:gap-[50px]">
+                      <div className="flex flex-col xl:gap-[32px] md:gap-[20px] xl:w-[445px] md:w-[700px]">
                         <div className="flex flex-col gap-[24px] pb-1 relative ">
                           <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
-                          <div>
-                            <p className="text-white">Sources</p>
-                            <p className="text-white">
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Sources
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px] ">
                               Allow or restrict sources to be used for this
                               character.
                             </p>
@@ -448,12 +481,14 @@ const Body = () => {
                         <div className="flex flex-col gap-[24px] pb-1 relative ">
                           <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
                           <div>
-                            <p className="text-white">Dice Rolling</p>
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Dice Rolling
+                            </p>
                           </div>
                           <div className="flex flex-col gap-[12px]">
-                            <div className="flex flex-row gap-[8px] mb-5">
+                            <div className="flex flex-row gap-[8px] items-start mb-5">
                               <ToggleButton />
-                              <p className="text-white">
+                              <p className="text-white flex-1">
                                 Enables digital dice rolling for this character
                               </p>
                             </div>
@@ -462,9 +497,11 @@ const Body = () => {
 
                         <div className="flex flex-col gap-[24px] pb-1 relative ">
                           <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
-                          <div>
-                            <p className="text-white">Optional Features</p>
-                            <p className="text-white">
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Optional Features
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px]">
                               Allow or restrict optional features for this
                               character.
                             </p>
@@ -486,9 +523,11 @@ const Body = () => {
                         </div>
                         <div className="flex flex-col gap-[24px] pb-1 relative ">
                           <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
-                          <div>
-                            <p className="text-white">Use Prerequisites</p>
-                            <p className="text-white">
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Use Prerequisites
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px]">
                               Allow or restrict choices based on rule
                               prerequisites for the following for this character
                             </p>
@@ -509,7 +548,9 @@ const Body = () => {
                         <div className="flex flex-col gap-[24px] pb-1 relative ">
                           <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
                           <div>
-                            <p className="text-white">Use Prerequisites</p>
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Show Level-Scaled Spells
+                            </p>
                           </div>
                           <div className="flex flex-col gap-[12px]">
                             <div className="flex flex-row gap-[8px] items-start mb-5">
@@ -524,7 +565,9 @@ const Body = () => {
                         <div className="flex flex-col gap-[24px] pb-1 relative ">
                           <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
                           <div>
-                            <p className="text-white">Ignore Coin Weight</p>
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Ignore Coin Weight
+                            </p>
                           </div>
                           <div className="flex flex-col gap-[12px]">
                             <div className="flex flex-row gap-[8px] items-start mb-5">
@@ -539,14 +582,16 @@ const Body = () => {
                         <div className="flex flex-col gap-[24px] pb-1 relative ">
                           <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
                           <div>
-                            <p className="text-white">Ignore Coin Weight</p>
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Character Privacy
+                            </p>
                           </div>
                           <div className="flex flex-col gap-[12px]">
                             <div className="flex flex-row gap-[12px] items-start">
                               <label className="container">
                                 <div className="flex flex-col gap-[4px]">
                                   <p className="text-white">Campaign Only</p>
-                                  <p className="text-white">
+                                  <p className="text-[#A5A5AB] font-Inter text-[18px]">
                                     Only others within a Campaign you have
                                     joined can view your Characters
                                   </p>
@@ -559,7 +604,7 @@ const Body = () => {
                               <label className="container">
                                 <div className="flex flex-col gap-[4px]">
                                   <p className="text-white">Public</p>
-                                  <p className="text-white">
+                                  <p className="text-[#A5A5AB] font-Inter text-[18px]">
                                     Anyone with a snared link can view your
                                     Characters.
                                   </p>
@@ -572,7 +617,7 @@ const Body = () => {
                               <label className="container">
                                 <div className="flex flex-col gap-[4px]">
                                   <p className="text-white">Private</p>
-                                  <p className="text-white">
+                                  <p className="text-[#A5A5AB] font-Inter text-[18px]">
                                     Only you can view your Characters.
                                   </p>
                                 </div>
@@ -583,16 +628,343 @@ const Body = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="flex flex-col gap-[32px] w-[445px] ">
-                        <div className="flex flex-row gap-[24px] border-b border-b-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]">
-                          <div>
-                            <p className="text-white">Sources</p>
-                            <p className="text-white">
-                              Allow or restrict sources to be used for this
-                              character.
+                      <div className="flex flex-col xl:gap-[32px] md:gap-[20px] xl:w-[445px] md:w-[600px]">
+                        <div className="flex flex-col gap-[24px] pb-1 relative ">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Partnered Content
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px]">
+                              Allow or restrict partnered content to be used for
+                              this character. This content should be used only
+                              at your DM's discretion.
                             </p>
                           </div>
-                          <div></div>
+                          <div className="flex flex-col gap-[12px]">
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">
+                                Critical Role Content
+                              </p>
+                            </div>
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">
+                                Rick and Morty Content
+                              </p>
+                            </div>
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">Minecraft Content</p>
+                            </div>
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">Grim Hollow Content</p>
+                            </div>
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">Drakkenheim Content</p>
+                            </div>
+                            <div className="flex flex-row gap-[8px] ">
+                              <ToggleButton />
+                              <p className="text-white">Humblewood Content</p>
+                            </div>
+                            <div className="flex flex-row gap-[8px] ">
+                              <ToggleButton />
+                              <p className="text-white">Kobold Press Content</p>
+                            </div>
+                            <div className="flex flex-row gap-[8px] mb-5">
+                              <ToggleButton />
+                              <p className="text-white">MCDM Content</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-[24px] pb-1 relative ">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Advancement Type
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px]">
+                              Story-based character progression / XP-based
+                              character progression
+                            </p>
+                          </div>
+                          <div className="relative inline-block text-left mb-5">
+                            <button
+                              id="dropdownDefaultButton"
+                              onClick={toggleFirstDropdown}
+                              className="text-white z-20  border w-[330px] flex justify-center gap-[204px] border-white rounded-lg text-sm px-5 py-2.5  "
+                            >
+                              Milestone
+                              <img
+                                src="/image/arrowdown.svg"
+                                className="ml-2"
+                                alt="Arrow Down"
+                              />
+                            </button>
+
+                            {isOpenFirst && (
+                              <div
+                                id="dropdown"
+                                className="absolute bg-[#000000]  mt-2 w-56 border border-white rounded-md shadow-lg z-20"
+                              >
+                                <ul
+                                  className="py-1 text-gray-700"
+                                  aria-labelledby="dropdownDefaultButton"
+                                >
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-[24px] pb-1 relative ">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Hit Point Type
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px]">
+                              When leveling up, increase hit points by the fixed
+                              value for your chosen class or manually enter a
+                              rolled value
+                            </p>
+                          </div>
+                          <div className="relative inline-block text-left mb-5">
+                            <button
+                              id="dropdownDefaultButton"
+                              onClick={toggleSecondDropdown}
+                              className="text-white border z-20 w-[330px] flex justify-center gap-[204px] border-white rounded-lg text-sm px-5 py-2.5  "
+                            >
+                              Fixed
+                              <img
+                                src="/image/arrowdown.svg"
+                                className="ml-2"
+                                alt="Arrow Down"
+                              />
+                            </button>
+
+                            {isOpenSecond && (
+                              <div
+                                id="dropdown"
+                                className="absolute bg-[#000000] mt-2 w-56 border border-white rounded-md shadow-lg z-20"
+                              >
+                                <ul
+                                  className="py-1 text-gray-700"
+                                  aria-labelledby="dropdownDefaultButton"
+                                >
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-[24px] pb-1 relative">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Encumbrance Type
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px]">
+                              Use the standard encumbrance rules / Disable the
+                              encumbrance display / Use the more detailed rules
+                              for encumbrance
+                            </p>
+                          </div>
+                          <div className="relative inline-block text-left mb-5">
+                            <button
+                              id="dropdownDefaultButton"
+                              onClick={toggleThirdDropdown}
+                              className="text-white border z-20 w-[330px] flex justify-between border-white rounded-lg text-sm px-5 py-2.5 whitespace-normal"
+                            >
+                              <span>Use Encumbrance</span>
+                              <img
+                                src="/image/arrowdown.svg"
+                                className="ml-2"
+                                alt="Arrow Down"
+                              />
+                            </button>
+
+                            {isOpenThird && (
+                              <div
+                                id="dropdown"
+                                className="absolute bg-[#000000] mt-2 w-56 border border-white rounded-md shadow-lg z-20"
+                              >
+                                <ul
+                                  className="py-1 text-gray-700"
+                                  aria-labelledby="dropdownDefaultButton"
+                                >
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-[24px] pb-1 relative">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Ability Score/Modifier Display
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px]">
+                              Reverse the arrangement Of ability modifiers and
+                              scores
+                            </p>
+                          </div>
+                          <div className="relative inline-block text-left mb-5">
+                            <button
+                              id="dropdownDefaultButton"
+                              onClick={toggleFourDropdown}
+                              className="text-white border z-20 w-[330px] flex justify-between border-white rounded-lg text-sm px-5 py-2.5 whitespace-normal"
+                            >
+                              <span>Modifiers Top</span>
+                              <img
+                                src="/image/arrowdown.svg"
+                                className="ml-2"
+                                alt="Arrow Down"
+                              />
+                            </button>
+
+                            {isOpenFour && (
+                              <div
+                                id="dropdown"
+                                className="absolute bg-[#000000] mt-2 w-56 border border-white rounded-md shadow-lg z-20"
+                              >
+                                <ul
+                                  className="py-1 text-gray-700"
+                                  aria-labelledby="dropdownDefaultButton"
+                                >
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -603,15 +975,580 @@ const Body = () => {
                     <p className="text-white w-[146px] flex justify-center items-center ml-[90px]">
                       Character Preferences
                     </p>
-                    <div className="flex flex-row w-[229px] gap-[14px] mt-5 ml-[10px]">
-                      <img src="/image/profilem.svg"></img>
-                      <div className="flex flex-col gap-[16px]">
-                        <p className="text-white">Character Name</p>
-                        <input
-                          type="text"
-                          placeholder="Quabis"
-                          className="w-[155px]  h-[32px] border border-[#D2D2D5] rounded-[8px] bg-transparent text-white placeholder-gray-500"
-                        />
+                    <div className="flex flex-col gap-[10px]">
+                      <div className="flex flex-row w-[229px] gap-[14px] mt-5 ml-[10px]">
+                        <img src="/image/profilem.svg"></img>
+                        <div className="flex flex-col gap-[16px]">
+                          <p className="text-white">Character Name</p>
+                          <input
+                            type="text"
+                            placeholder="Quabis"
+                            className="w-[155px]  h-[32px] border border-[#D2D2D5] rounded-[8px] bg-transparent text-white placeholder-gray-500"
+                          />
+                        </div>
+                      </div>
+                      <div className="ml-[10px] flex flex-col gap-[10px]">
+                        <p className="text-white">Suggestions:</p>
+                        <div className="flex flex-col gap-[10px]">
+                          <div className="flex flex-row gap-[8px] ">
+                            <button className="border border-[#D2D2D5] rounded-[4px] w-[69px] h-[32px] text-white">
+                              Sylkath
+                            </button>
+                            <button className="border border-[#D2D2D5] rounded-[4px] w-[71px] h-[32px] text-white">
+                              Xilgwyn
+                            </button>
+                            <button className="border border-[#D2D2D5] rounded-[4px] w-[85px] h-[32px] text-white">
+                              Anasviryn
+                            </button>
+                          </div>
+                          <div className="flex flex-row gap-[8px] ">
+                            <button className="border border-[#D2D2D5] rounded-[4px] w-[85px] h-[32px] text-white">
+                              Anasviryn
+                            </button>
+                            <button className="border border-[#D2D2D5] rounded-[4px] w-[67px] h-[32px] text-white">
+                              Lertide
+                            </button>
+                            <button className="border border-[#D2D2D5] rounded-[4px] w-[60px] h-[32px] text-white">
+                              Quyra
+                            </button>
+                          </div>
+                          <button className="border border-[#F9C80E] rounded-[4px] w-[132px] h-[32px] text-[#F9C80E] hover:border-transparent hover:bg-[#F9C80E] hover:text-[#1D1F2C]">
+                            + Suggest More
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col  justify-center mt-10 xl:gap-[152px] md:gap-[50px]">
+                      <div className="flex flex-col xl:gap-[32px] md:gap-[20px] xl:w-[445px] md:w-[700px] ml-[10px]">
+                        <div className="flex flex-col gap-[24px] pb-1 relative ">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Sources
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px] ">
+                              Allow or restrict sources to be used for this
+                              character.
+                            </p>
+                          </div>
+                          <div className="flex flex-col gap-[12px]">
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">Homebrew Content</p>
+                            </div>
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">
+                                Magic: The Gathering Content
+                              </p>
+                            </div>
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">Eberron Content</p>
+                            </div>
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">Noncore D&D Content</p>
+                            </div>
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">Dragonlance Content</p>
+                            </div>
+                            <div className="flex flex-row gap-[8px] mb-5">
+                              <ToggleButton />
+                              <p className="text-white">Planescape Content</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col gap-[24px] pb-1 relative mt-5">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div>
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Dice Rolling
+                            </p>
+                          </div>
+                          <div className="flex flex-col gap-[12px]">
+                            <div className="flex flex-row gap-[8px] items-start mb-5">
+                              <ToggleButton />
+                              <p className="text-white flex-1">
+                                Enables digital dice rolling for this character
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col gap-[24px] pb-1 relative mt-5">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Optional Features
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px]">
+                              Allow or restrict optional features for this
+                              character.
+                            </p>
+                          </div>
+                          <div className="flex flex-col gap-[12px]">
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">
+                                Customize Your Origin
+                              </p>
+                            </div>
+                            <div className="flex flex-row gap-[8px] mb-5">
+                              <ToggleButton />
+                              <p className="text-white">
+                                Optional Class Features
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-[24px] pb-1 relative mt-5">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Use Prerequisites
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px]">
+                              Allow or restrict choices based on rule
+                              prerequisites for the following for this character
+                            </p>
+                          </div>
+                          <div className="flex flex-col gap-[12px]">
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">Feats</p>
+                            </div>
+                            <div className="flex flex-row gap-[8px] mb-5">
+                              <ToggleButton />
+                              <p className="text-white">
+                                Multiclass Requirements
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-[24px] pb-1 relative mt-5">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div>
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Show Level-Scaled Spells
+                            </p>
+                          </div>
+                          <div className="flex flex-col gap-[12px]">
+                            <div className="flex flex-row gap-[8px] items-start mb-5">
+                              <ToggleButton />
+                              <p className="text-white flex-1">
+                                Display and highlight available spells to cast
+                                with higher level spell slots
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-[24px] pb-1 relative mt-5">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div>
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Ignore Coin Weight
+                            </p>
+                          </div>
+                          <div className="flex flex-col gap-[12px]">
+                            <div className="flex flex-row gap-[8px] items-start mb-5">
+                              <ToggleButton />
+                              <p className="text-white flex-1">
+                                Coins do not count against your total weight
+                                carried (50 coins weigh I lb.)
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-[24px] pb-1 relative mt-5">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div>
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Character Privacy
+                            </p>
+                          </div>
+                          <div className="flex flex-col gap-[12px]">
+                            <div className="flex flex-row gap-[12px] items-start">
+                              <label className="container">
+                                <div className="flex flex-col gap-[4px]">
+                                  <p className="text-white">Campaign Only</p>
+                                  <p className="text-[#A5A5AB] font-Inter text-[18px]">
+                                    Only others within a Campaign you have
+                                    joined can view your Characters
+                                  </p>
+                                </div>
+                                <input type="radio" name="radio"></input>
+                                <span className="checkmark"></span>
+                              </label>
+                            </div>
+                            <div className="flex flex-row gap-[12px] items-start">
+                              <label className="container">
+                                <div className="flex flex-col gap-[4px]">
+                                  <p className="text-white">Public</p>
+                                  <p className="text-[#A5A5AB] font-Inter text-[18px]">
+                                    Anyone with a snared link can view your
+                                    Characters.
+                                  </p>
+                                </div>
+                                <input type="radio" name="radio"></input>
+                                <span className="checkmark"></span>
+                              </label>
+                            </div>
+                            <div className="flex flex-row gap-[12px] items-start mb-5">
+                              <label className="container">
+                                <div className="flex flex-col gap-[4px]">
+                                  <p className="text-white">Private</p>
+                                  <p className="text-[#A5A5AB] font-Inter text-[18px]">
+                                    Only you can view your Characters.
+                                  </p>
+                                </div>
+                                <input type="radio" name="radio"></input>
+                                <span className="checkmark"></span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col xl:gap-[32px] md:gap-[20px] xl:w-[445px] md:w-[600px] ml-[10px] ">
+                        <div className="flex flex-col gap-[24px] pb-1 relative mt-5">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Partnered Content
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px]">
+                              Allow or restrict partnered content to be used for
+                              this character. This content should be used only
+                              at your DM's discretion.
+                            </p>
+                          </div>
+                          <div className="flex flex-col gap-[12px]">
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">
+                                Critical Role Content
+                              </p>
+                            </div>
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">
+                                Rick and Morty Content
+                              </p>
+                            </div>
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">Minecraft Content</p>
+                            </div>
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">Grim Hollow Content</p>
+                            </div>
+                            <div className="flex flex-row gap-[8px]">
+                              <ToggleButton />
+                              <p className="text-white">Drakkenheim Content</p>
+                            </div>
+                            <div className="flex flex-row gap-[8px] ">
+                              <ToggleButton />
+                              <p className="text-white">Humblewood Content</p>
+                            </div>
+                            <div className="flex flex-row gap-[8px] ">
+                              <ToggleButton />
+                              <p className="text-white">Kobold Press Content</p>
+                            </div>
+                            <div className="flex flex-row gap-[8px] mb-5">
+                              <ToggleButton />
+                              <p className="text-white">MCDM Content</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-[24px] pb-1 relative mt-5">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Advancement Type
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px]">
+                              Story-based character progression / XP-based
+                              character progression
+                            </p>
+                          </div>
+                          <div className="relative inline-block text-left mb-5">
+                            <button
+                              id="dropdownDefaultButton"
+                              onClick={toggleFirstDropdown}
+                              className="text-white z-20  border w-[230px] gap-[100px] flex justify-center  border-white rounded-lg text-sm px-5 py-2.5  "
+                            >
+                              Milestone
+                              <img
+                                src="/image/arrowdown.svg"
+                                className="ml-2"
+                                alt="Arrow Down"
+                              />
+                            </button>
+
+                            {isOpenFirst && (
+                              <div
+                                id="dropdown"
+                                className="absolute bg-[#000000]  mt-2 w-56 border border-white rounded-md shadow-lg z-20"
+                              >
+                                <ul
+                                  className="py-1 text-gray-700"
+                                  aria-labelledby="dropdownDefaultButton"
+                                >
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-[24px] pb-1 relative mt-5">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Hit Point Type
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px]">
+                              When leveling up, increase hit points by the fixed
+                              value for your chosen class or manually enter a
+                              rolled value
+                            </p>
+                          </div>
+                          <div className="relative inline-block text-left mb-5">
+                            <button
+                              id="dropdownDefaultButton"
+                              onClick={toggleSecondDropdown}
+                              className="text-white border z-20 w-[230px] gap-[100px] flex justify-center  border-white rounded-lg text-sm px-5 py-2.5  "
+                            >
+                              Fixed
+                              <img
+                                src="/image/arrowdown.svg"
+                                className="ml-2"
+                                alt="Arrow Down"
+                              />
+                            </button>
+
+                            {isOpenSecond && (
+                              <div
+                                id="dropdown"
+                                className="absolute bg-[#000000] mt-2 w-56 border border-white rounded-md shadow-lg z-20"
+                              >
+                                <ul
+                                  className="py-1 text-gray-700"
+                                  aria-labelledby="dropdownDefaultButton"
+                                >
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-[24px] pb-1 relative mt-5">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Encumbrance Type
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px]">
+                              Use the standard encumbrance rules / Disable the
+                              encumbrance display / Use the more detailed rules
+                              for encumbrance
+                            </p>
+                          </div>
+                          <div className="relative inline-block text-left mb-5">
+                            <button
+                              id="dropdownDefaultButton"
+                              onClick={toggleThirdDropdown}
+                              className="text-white border z-20 w-[230px] flex justify-between border-white rounded-lg text-sm px-5 py-2.5 whitespace-normal"
+                            >
+                              <span>Use Encumbrance</span>
+                              <img
+                                src="/image/arrowdown.svg"
+                                className="ml-2"
+                                alt="Arrow Down"
+                              />
+                            </button>
+
+                            {isOpenThird && (
+                              <div
+                                id="dropdown"
+                                className="absolute bg-[#000000] mt-2 w-56 border border-white rounded-md shadow-lg z-20"
+                              >
+                                <ul
+                                  className="py-1 text-gray-700"
+                                  aria-labelledby="dropdownDefaultButton"
+                                >
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-[24px] pb-1 relative mt-5">
+                          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#a8aaad28] via-[#A8AAAD] to-[#a8aaad28]"></div>
+                          <div className="flex flex-col gap-[18px]">
+                            <p className="text-white font-Sora font-semibold text-[24px]">
+                              Ability Score/Modifier Display
+                            </p>
+                            <p className="text-[#A5A5AB] font-Inter text-[16px]">
+                              Reverse the arrangement Of ability modifiers and
+                              scores
+                            </p>
+                          </div>
+                          <div className="relative inline-block text-left mb-5">
+                            <button
+                              id="dropdownDefaultButton"
+                              onClick={toggleFourDropdown}
+                              className="text-white border z-20 w-[230px] flex justify-between border-white rounded-lg text-sm px-5 py-2.5 whitespace-normal"
+                            >
+                              <span>Modifiers Top</span>
+                              <img
+                                src="/image/arrowdown.svg"
+                                className="ml-2"
+                                alt="Arrow Down"
+                              />
+                            </button>
+
+                            {isOpenFour && (
+                              <div
+                                id="dropdown"
+                                className="absolute bg-[#000000] mt-2 w-56 border border-white rounded-md shadow-lg z-20"
+                              >
+                                <ul
+                                  className="py-1 text-gray-700"
+                                  aria-labelledby="dropdownDefaultButton"
+                                >
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="#"
+                                      className="block px-4 py-2 hover:bg-[#ffffff2c] text-white"
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
