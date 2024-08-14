@@ -13,6 +13,7 @@ import Store from './pages/Store.tsx';
 import Footer from './Components/Footer.tsx';
 import Menu from './pages/Menu.tsx';
 import Editor from './pages/Editor.tsx';
+import Story from './pages/Story.tsx';
 
 const router = createBrowserRouter([
 
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/editor",
     element: <Editor />,
+  },
+  {
+    path: "/story",
+    element: <Story />,
   },
 ]);
 

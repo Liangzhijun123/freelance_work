@@ -320,7 +320,7 @@ const Body = () => {
                     <a className="text-[#E9E9EA]">Sub-menu 3</a>
                   </div>
                   <div className="px-[10px]  h-[40px] p-2 w-full hover:bg-gradient-to-r from-[#53546c4a] to-[#000000]">
-                    <a className="text-[#E9E9EA]">Storyline </a>
+                    <a className="text-[#E9E9EA]" href="/story">Storyline </a>
                   </div>
                 </div>
               </div>

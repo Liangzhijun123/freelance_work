@@ -45,7 +45,7 @@ const Nav = () => {
             Menu
           </a>
           <a
-            href="#"
+            href="/story"
             className="relative text-[#D2D2D5] font-Inter text-[18px] hover:text-white border-hidden hover-gradient-border"
           >
             Story Line
@@ -113,7 +113,7 @@ const Nav = () => {
             Menu
           </a>
           <a
-            href="#"
+            href="/story"
             className="relative text-[#D2D2D5] font-Inter text-[18px] hover:text-white border-hidden hover-gradient-border"
           >
             Story Line
