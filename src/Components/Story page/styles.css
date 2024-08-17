@@ -1,0 +1,32 @@
+/* Ensure text color for node labels is white */
+.node text {
+  fill: white !important;
+  font-size: 11px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Style for node circles with gradient fill */
+.node circle {
+  fill: url(#node-gradient) !important;
+  stroke: none; /* Optional: remove stroke if not needed */
+}
+
+/* Style for path links */
+.link {
+  stroke: url(#path-gradient) !important;
+  stroke-width: 2; /* Adjust stroke width as needed */
+}
+
+/* Define gradients in CSS */
+svg defs {
+  filter: url(#path-gradient) !important;
+}
+
+/* Style for node rectangles with gradient fill */
+.node rect {
+  fill: url(#node-gradient) !important;
+  stroke: none; /* Optional: remove stroke if not needed */
+  width: 132px;
+  height: 45.79px;
+  border-radius: 10px;
+}

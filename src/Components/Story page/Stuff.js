@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback, useLayoutEffect } from 'react';
 import { Tree } from 'react-tree-graph';
 import 'react-tree-graph/dist/style.css';
-import rootNode from './Data';
+import rootNode from './data'; // Import the data from data.js
+import './styles.css'; // Import your custom styles
 
 const DEFAULT_DEPTH = 9;
 
@@ -9,33 +10,22 @@ const cloneWithDepth = (object, depth = DEFAULT_DEPTH) => {
   if (depth === -1) return undefined;
   if (typeof object !== 'object') return object;
 
-  if (Array.isArray(object)) {
-    return object
-      .map((val) => cloneWithDepth(val, depth - 1))
-      .filter((val) => val !== undefined);
+  if (Array.isArray(object.children)) {
+    return {
+      name: object.name,
+      children: object.children
+        .map(val => cloneWithDepth(val, depth - 1))
+        .filter(val => val !== undefined)
+    };
   }
 
-  const clone = {};
-
-  for (const key in object) {
-    if (typeof object[key] === 'object' && depth - 1 === -1) {
-      continue;
-    }
-
-    const clonedValue = cloneWithDepth(object[key], depth - 1);
-
-    if (clonedValue !== undefined) {
-      clone[key] = clonedValue;
-    }
-  }
-
-  return clone;
+  return {
+    name: object.name,
+    children: []
+  };
 };
-interface TreeNode {
-  name: string;
-  children?: TreeNode[];
-}
-const findNode = (key: string, node: TreeNode = rootNode, parentPath: string[] = []): { node: TreeNode; path: string[] } | undefined => {
+
+const findNode = (key, node = rootNode, parentPath = []) => {
   const path = [...parentPath, node.name];
 
   if (node.name === key) {
@@ -52,7 +42,6 @@ const findNode = (key: string, node: TreeNode = rootNode, parentPath: string[] =
   return undefined;
 };
 
-
 const useWindowInnerSize = () => {
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   const [innerHeight, setInnerHeight] = useState(window.innerHeight);
@@ -68,14 +57,11 @@ const useWindowInnerSize = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, [handleResize]);
 
-  return {
-    innerWidth,
-    innerHeight,
-  };
+  return { innerWidth, innerHeight };
 };
 
 const Data = () => {
-  const [data, setData] = useState(cloneWithDepth(rootNode));
+  const [data, setData] = useState(rootNode);
   const [path, setPath] = useState([rootNode.name]);
   const [canvasWidth, setCanvasWidth] = useState(0);
   const [canvasHeight, setCanvasHeight] = useState(0);
@@ -89,8 +75,10 @@ const Data = () => {
       setCanvasHeight(clientHeight);
     }
   }, []);
-  
-  useEffect(setCanvasSize, [setCanvasSize]);
+
+  useEffect(() => {
+    setCanvasSize();
+  }, [setCanvasSize]);
 
   useLayoutEffect(() => {
     setCanvasWidth(0);
@@ -99,38 +87,46 @@ const Data = () => {
 
   useEffect(() => {
     let isMounted = true;
-  
+
     requestAnimationFrame(() => {
-      if (isMounted) {
-        setCanvasSize();
-      }
+      if (isMounted) setCanvasSize();
     });
-  
+
     return () => {
       isMounted = false;
     };
   }, [innerWidth, innerHeight, setCanvasSize]);
-  
 
-  const changeNode = (foundNode: { node: TreeNode; path: string[] } | undefined) => {
+  const changeNode = (foundNode) => {
     if (foundNode) {
       setPath(foundNode.path);
       setData(foundNode.node);
     }
   };
-  
 
-  const handleClick = (_, key: string) => {
+  const handleClick = (_, key) => {
     const foundNode = findNode(key);
     changeNode(foundNode);
   };
-  
 
   return (
     <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+     
+     <svg width="0" height="0">
+        <defs>
+          <linearGradient id="node-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style={{ stopColor: '#7A16E6', stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: '#7A16E6', stopOpacity: 1 }} />
+          </linearGradient>
+          <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style={{ stopColor: '#B045F2', stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: '#5944F2', stopOpacity: 1 }} />
+          </linearGradient>
+        </defs>
+      </svg>
       <div>
         <div>
-          {path.map((p) => (
+          {path.map(p => (
             <button
               style={{
                 margin: '0',
@@ -150,15 +146,16 @@ const Data = () => {
           ))}
         </div>
       </div>
-      <div style={{ height: '500px' }}>
-      <Tree
-        data={rootNode}
-        width={600}
-        height={400}
-        
-        margins={{ top: 20, bottom: 10, left: 20, right: 200 }}
-      />
-    </div>
+      <div style={{ height: '500px' }} ref={canvasWrapper}>
+        {data && (
+          <Tree
+            data={data}
+            width={canvasWidth}
+            height={canvasHeight}
+            margins={{ top: 20, bottom: 10, left: 20, right: 200 }}
+          />
+        )}
+      </div>
     </div>
   );
 };
