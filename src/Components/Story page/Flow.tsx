@@ -256,7 +256,7 @@ const Flow = () => {
   );
 
   return (
-    <div style={{ width: "881px", height: "565px" }} className="">
+    <div  className="xl:w-[881px] xl:h-[565px] md:w-[400px] md:h-[600px] sm:w-[400px] sm:h-[600px] w-[300px] h-[600px]">
       <ReactFlow
         nodes={nodes}
         edges={edges}

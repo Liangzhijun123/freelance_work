@@ -280,7 +280,7 @@ const Body = () => {
             {/* right section */}
             <div className="flex flex-col gap-[40px] relative">
               <div
-                className="relative w-[1272px] h-[863px] rounded-[16px] flex flex-row"
+                className="relative xl:w-[1272px] md:w-[800px] h-[1800px] sm:w-[600px] w-[375px] rounded-[16px] flex flex-row"
                 style={{
                   backgroundColor: "black",
                   border: "1px solid rgba(185, 91, 234, 0.4)",
@@ -297,14 +297,14 @@ const Body = () => {
                 >
                   <div className="flex flex-col gap-[47px] py-10 px-10">
                     <div className="flex flex-col gap-[24px] justify-center items-center ">
-                      <p className="text-white">Story</p>
-                      <p className="text-white">
+                      <p className="text-white font-semibold font-Sora text-[48px]">Story</p>
+                      <p className="text-white font-Inter font-medium text-[18px]">
                         Rediscover classic adventures with new Dynamic Lighting
                         and our latest features.
                       </p>
                     </div>
-                    <div className="flex flex-row gap-[15px]  items-center">
-                      <div className="w-[285px] h-[600px] border border-[#b85bea41] rounded-[8px] bg-gradient-to-tl from-[#ffffff00] to-[#5b23cb42]">
+                    <div className="flex md:flex-row flex-col gap-[15px]  items-center">
+                      <div className="md:w-[285px] sm:w-[500px] h-[600px] border border-[#b85bea41] rounded-[8px] bg-gradient-to-tl from-[#ffffff00] to-[#5b23cb42]">
                         <div className="flex flex-col justify-center items-center gap-[25px]">
                           <div className="relative flex flex-row gap-[29px] py-[16px] px-[24px] ">
                             <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r  from-[#a8aaad1b] via-[#A8AAAD] to-[#a8aaad1b]"></div>
@@ -448,7 +448,7 @@ const Body = () => {
                           </a>
                         </div>
                       </div>
-                      <div className="w-[908px] h-[600px] border border-[#b85bea41] rounded-[8px] bg-gradient-to-r from-[#5b23cb42] to-[#ffffff00]">
+                      <div className="xl:w-[908px] md:w-[700px] sm:w-[500px] h-[600px] border border-[#b85bea41] rounded-[8px] bg-gradient-to-r from-[#5b23cb42] to-[#ffffff00]">
                         <div className="flex justify-center items-center">
                            {/* <Data />  */}
                            <Flow />
