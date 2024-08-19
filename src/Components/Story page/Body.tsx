@@ -280,7 +280,7 @@ const Body = () => {
             {/* right section */}
             <div className="flex flex-col gap-[40px] relative">
               <div
-                className="relative xl:w-[1272px] md:w-[800px] h-[1800px] sm:w-[600px] w-[375px] rounded-[16px] flex flex-row"
+                className="relative xl:w-[1272px] xl:h-[900px] md:w-[800px] h-[1800px] sm:w-[600px] w-[375px] rounded-[16px] flex flex-row"
                 style={{
                   backgroundColor: "black",
                   border: "1px solid rgba(185, 91, 234, 0.4)",
