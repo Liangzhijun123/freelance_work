@@ -1,0 +1,16 @@
+.card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust the gap as needed */
+    width: 100%;
+    max-width: 400px; /* Optional: Set a max width for the form */
+  }
+  
+  .card-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Space between each card input field */
+  }
+  
+  /* Customize the CardElement styling here if needed */
+  
