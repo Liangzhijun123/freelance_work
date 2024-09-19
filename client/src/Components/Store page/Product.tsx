@@ -26,14 +26,14 @@ import Slide_22 from "./Slide_show_six/Slide_three.tsx";
 import Slide_23 from "./Slide_show_six/Slide_four.tsx";
 import Slide_24 from "./Slide_show_six/Slide_five.tsx";
 
-import { loadStripe } from "@stripe/stripe-js";
+import { loadStripe, Stripe } from '@stripe/stripe-js';
 import { Elements } from "@stripe/react-stripe-js";
 
-import PaymentForm from "./PaymentForm";
+import axios from "axios";
 
-const stripePromise = loadStripe(
-  "pk_test_51Pxa6LIpuZ2Tudpzbno8dxXGoXNiJBdkOkaDOOOEqmuaiNDN2L3uhrEskJw4gdhKNeelscVj8VxWHKWC47TC8wdk003O7LpgiL"
-);
+// const stripePromise = loadStripe(
+//   "pk_test_51Pxa6LIpuZ2Tudpzbno8dxXGoXNiJBdkOkaDOOOEqmuaiNDN2L3uhrEskJw4gdhKNeelscVj8VxWHKWC47TC8wdk003O7LpgiL"
+// );
 
 const Product = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -43,9 +43,41 @@ const Product = () => {
   const [popOutOpen, setPopOutOpen] = useState(false);
   const popOutRef = useRef<HTMLDivElement>(null);
 
-  const StripeWrapper = ({ children }) => {
-    return <Elements stripe={stripePromise}>{children}</Elements>;
+  // const StripeWrapper = ({ children }) => {
+  //   return <Elements stripe={stripePromise}>{children}</Elements>;
+  // };
+
+  const stripePromise = loadStripe("pk_test_51Pxa6LIpuZ2Tudpzbno8dxXGoXNiJBdkOkaDOOOEqmuaiNDN2L3uhrEskJw4gdhKNeelscVj8VxWHKWC47TC8wdk003O7LpgiL");
+
+  const [amount, setAmount] = useState(2499);
+
+  // handle to buy
+  const handleBuy = async () => {
+    try {
+      // Define product data
+      const productData = {
+        name: "Product Name",
+        description: "Product Description",
+        price: 2499,
+        quantity: 1,
+      };
+  
+      // Send the POST request to create the payment intent
+      const response = await axios.post(
+        "https://loomlite-api-staging-c0emetgpguggb4fj.eastus2-01.azurewebsites.net/api/Payment", // corrected URL
+        productData
+      );
+  
+      const  clientSecret  = response.data; // Expecting clientSecret in the response
+  
+      window.location.href = clientSecret
+  
+  
+    } catch (error) {
+      console.error("Error in handleBuy:", error);
+    }
   };
+
 
   const popoutslide = [
     <Slide_20 />,
@@ -144,7 +176,7 @@ const Product = () => {
 
   const renderSlides = (slides: JSX.Element[]) => (
     <>
-      <div className="hidden md:flex flex-row gap-[32px] w-full max-w-[100vw] overflow-x-scroll no-scrollbar">
+      <div className="hidden md:flex flex-row gap-[32px] xl:w-full md:max-w-[100vw] md:overflow-x-scroll no-scrollbar xl:flex justify-center">
         {slides.map((slide, index) => (
           <div key={index} className="transform transition duration-300">
             <div onClick={togglePopOut}>{slide}</div>
@@ -227,14 +259,18 @@ const Product = () => {
                           Gift
                         </a>
                       </div>
-                      <div className="flex gap-[10px] text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[200px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black items-center justify-center group">
-                        {/* <a href="#BuyNow" className="group-hover:text-black">
-                          Buy Now
-                        </a> */}
 
-                        <StripeWrapper>
-                          <PaymentForm />
-                        </StripeWrapper>
+                      {/* stripe buy now here */}
+                      <div className="flex gap-[10px] text-[#F9C80E] font-Inter text-[18px] border border-[#F9C80E] rounded-[8px] p-2 md:w-[200px] transition-colors duration-300 hover:bg-[#F9C80E] hover:text-black items-center justify-center group">
+                        {/* <input
+                          type="number"
+                          value={amount / 100}
+                          onChange={(e) =>
+                            setAmount(Number(e.target.value) * 100)
+                          } 
+                          placeholder="Enter amount"
+                        /> */}
+                        <button onClick={handleBuy}>Buy Now</button>
                       </div>
                     </div>
                   </div>
