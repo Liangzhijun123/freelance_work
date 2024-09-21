@@ -58,7 +58,7 @@ const Product = () => {
       const productData = {
         name: "Product Name",
         description: "Product Description",
-        price: 2499,
+        price: 24.99,
         quantity: 1,
       };
   

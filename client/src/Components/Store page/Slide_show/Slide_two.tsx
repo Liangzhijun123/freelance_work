@@ -8,7 +8,6 @@ const Featured = [
         text_four: "Games Adventures",
         text_five: "Long Campaigns",
       },
-      
 ];
 const Slide_two = () => {
     return ( 
