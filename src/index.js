@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './App.jsx';
+import reportWebVitals from './reportWebVitals.js';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Home from './pages/home';
+import Home from './pages/home.jsx';
 import Nav from './Components/Nav.tsx';
 import Store from './pages/Store.tsx';
 import Footer from './Components/Footer.tsx';
