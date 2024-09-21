@@ -33,6 +33,16 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
+        test: /\.(js|jsx|ts|tsx)$/,  // Apply Babel loader for both JS and JSX/TS/TSX files
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
+      {
         test: /\.css$/,
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
