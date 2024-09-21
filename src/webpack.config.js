@@ -54,4 +54,5 @@ module.exports = {
     port: 9000,
     historyApiFallback: true,
   },
+  mode: 'development',
 };
